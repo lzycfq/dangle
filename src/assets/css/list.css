@@ -1,0 +1,163 @@
+
+img, fieldset {
+	border: 0;
+	vertical-align: middle
+}
+
+.clearfix:after {
+	content: "\20";
+	clear: both;
+	height: 0;
+	display: block;
+	overflow: hidden
+}
+
+.clearfix {
+	*zoom: 1
+}
+
+.clear {
+	font-size: 0;
+	line-height: 0;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+	visibility: hidden
+}
+
+.fl,.mark {
+	float: left
+}
+
+.fr,.subMark {
+	float: right
+}
+
+.spanclass,.contentdiv {
+	display: none
+}
+
+/*a{
+	color: #000;
+	text-decoration: none
+}*/
+
+/*a:hover {
+	color: #884400;
+	text-decoration: underline
+}
+.cp {
+	cursor: pointer;
+}*/
+
+/* scrolltab */
+
+.scrolltab {
+	position: relative;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.scrolltab .dSmallPicBox {
+	width: 688px;
+	height: 120px;
+	position: relative;
+}
+
+.scrolltab .dSmallPic {
+	width: 590px;
+	height: 120px;
+	position: absolute;
+	left: 53px;
+	top: 0px;
+	overflow: hidden;
+}
+
+.scrolltab .dSmallPic ul {
+	position: absolute;
+}
+
+.scrolltab .dSmallPic li {
+	width: 141px;
+	height: 110px;
+	border: 1px solid #fff;
+	padding: 3px 2px 0;
+	float: left;
+	display: inline;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.scrolltab .dSmallPic .sPic {
+	width: 141px;
+	height: 106px;
+	display: block;
+}
+
+.scrolltab .dSmallPic .sPic img {
+	border: 1px solid #ddd;
+	padding: 2px;
+}
+
+.scrolltab .dSmallPic .sTitle {
+	width: 141px;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	text-align: center;
+	color: #333;
+	overflow: hidden;
+}
+
+.scrolltab .dSmallPic .liSelected {
+	border-color: #e9c184;
+}
+
+.scrolltab .dSmallPic .liSelected .sPic img {
+	border-color: #fff;
+}
+
+/* .scrolltab .sLeftBtnB,.scrolltab .sLeftBtnBSel,.scrolltab .sLeftBtnBBan,.scrolltab .sRightBtnB,.scrolltab .sRightBtnBSel,.scrolltab .sRightBtnBBan {
+	width: 18px;
+	height: 37px;
+	display: block;
+	position: absolute;
+	top: 45px;
+	background: url(../images/bgArt.png) no-repeat;
+} */
+
+.scrolltab .sLeftBtnB,.scrolltab .sLeftBtnBSel,.scrolltab .sRightBtnB,.scrolltab .sRightBtnBSel {
+	cursor: pointer;
+}
+
+.scrolltab .sLeftBtnB,.scrolltab .sLeftBtnBSel,.scrolltab .sLeftBtnBBan {
+	left: 20px;
+}
+
+.scrolltab .sLeftBtnB {
+	background-position: 0 -87px;
+}
+
+.scrolltab .sLeftBtnBSel {
+	background-position: -36px -87px;
+}
+
+.scrolltab .sLeftBtnBBan {
+	background-position: -73px -87px;
+}
+
+.scrolltab .sRightBtnB,.scrolltab .sRightBtnBSel,.scrolltab .sRightBtnBBan {
+	right: 20px;
+}
+
+.scrolltab .sRightBtnB {
+	background-position: -16px -87px;
+}
+
+.scrolltab .sRightBtnBSel {
+	background-position: -52px -87px;
+}
+
+.scrolltab .sRightBtnBBan {
+	background-position: -88px -87px;
+}

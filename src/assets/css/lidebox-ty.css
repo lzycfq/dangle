@@ -1,0 +1,79 @@
+.boxwrapper *{
+			margin: 0;
+			padding: 0;
+}
+.boxwrapper{
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	background-color: green;
+}
+.boxinner{
+	overflow: hidden;
+	position: absolute;
+	list-style: none;
+}
+.boxinner li{
+	float: left;
+	background-color: #DCDCDC;
+	margin-right:0px;
+}
+
+.btnitem{
+	list-style: none;
+	position: absolute;
+	bottom: 5px;
+	width: 400px;
+}
+.btnitem li{
+	float: left;
+	width: 50px;
+	height: 5px;
+	line-height: 20px;
+	/*border-radius: 10px;*/
+	border: solid 1px #eee;
+	text-align: center;
+	background-color: #FFF;
+	margin-right: 2px;
+	color: white;
+	cursor: pointer;
+}
+.btnitem li.current
+{
+	background-color: #ddd;
+	color: #DDCDAC;
+}
+
+.btnleft{
+	position: absolute;
+	left: 0;
+	top:50px;
+	z-index: 10;
+	width: 20px;
+	height:50px;
+	cursor: pointer;
+	background-image: url(../img/nav.png);
+	background-position: -10px 5px;
+	background-repeat: no-repeat;
+	opacity: .6;
+	
+}
+.btnhover
+{
+	background-color:#000;
+	opacity: .4;
+}
+.btnright{
+	position: absolute;
+	right: 0;
+	top:50px;
+	z-index: 10;
+	width: 20px;
+	height:50px;
+	cursor: pointer;
+	background-image: url(../img/nav.png);
+	background-position: -55px 5px;
+	background-repeat: no-repeat;
+	opacity: .6;
+}
+

@@ -1,0 +1,8 @@
+.show_contern .imgB{
+    width: 100%;
+    height:200px;
+    margin-top: 10px;
+}
+#MyDiv li{
+    float: none;
+}

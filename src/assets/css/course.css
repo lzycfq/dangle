@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+/*企业历程时间轴*/
+#time_axis {
+	width: 94%;
+	margin: 15px auto 0;
+	/*border: 1px #c8c8c8 solid;*/
+	/*border-radius: 8px;*/
+	background-color: #fff;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+#licheng{
+	background-image: url(../images/line.png);
+	background-repeat: repeat-y;
+	background-position: 129.5px center;
+	padding-top: 40px;
+}
+.time {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: auto;
+	font-size: 18px;
+	line-height: 20px;
+	font-weight: bold;
+	margin-top: 40px;
+	color: #8c8c8c;
+}
+.time:nth-child(1) {
+	margin-top: 0;
+}
+.t_1 {
+	width: 120px;
+}
+.t_2 {
+	width: 20px;
+	height: 20px;
+	background-color: #EF8200;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+.t_3 {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	text-align: left;
+}
+#member {
+	width: 100%;
+	display: block;
+	background-color: #fff;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #3b3b3b;
+	font-size: 12px;
+	padding: 0 20px;
+}
+#member img {
+	float: left;
+	margin-top: 23px;
+	margin-left: 18px;
+	background-color: #f8f8f8;
+	border: 1px #e3e3e3 solid;
+	width: 170px;
+	height: 37px;
+	margin-right: 10px;
+}
+#member span {
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	font-weight: bold;
+	text-align: left;
+	font-size: 18px;
+	color: #EF8200;
+}
+#member span:first-of-type {
+	padding-top: 18px;
+	margin-bottom: 8px;
+}
+@media screen and (max-width: 420px) {
+	#member img {
+		margin-left: 0;
+		margin-top:26px;
+		width: 161px;
+		height: 33px;
+	}
+	#member span {
+		font-size: 14px;
+	}
+	#member span:first-of-type {
+		padding-top: 23px;
+		margin-bottom: 3px;
+	}
+}
+@media screen and (max-width: 375px) {
+	#licheng{
+		background-repeat: repeat-y;
+		background-position: 128.5px center;
+	}
+	#member img {
+		margin-left: 0;
+		margin-top:26px;
+		width: 133px;
+		height: 27px;
+	}
+	#member span {
+		font-size: 0.4rem;
+	}
+	#member span:first-of-type {
+		padding-top: 23px;
+		margin-bottom: 3px;
+	}
+}

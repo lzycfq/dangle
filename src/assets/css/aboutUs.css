@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+/*关于当乐*/
+.about_nav{
+	padding:10px 0;
+	overflow: hidden;
+	z-index: 3;
+}
+@media screen and (min-width: 769px) {
+	.about_nav{
+		width:80%;
+		margin:auto;
+	}
+}
+.about_nav>div{
+	width:33%;
+	float: left;
+	text-align: center;
+}
+.about_nav>div>a{
+	display: inline-block;
+	position: relative;
+	padding:15px 0;
+}
+.about_nav>div>a>span:after{
+	position: absolute;
+	bottom:13px;
+	margin:auto;
+	left:0;
+	right:0;
+	display: block;
+	content: '';
+	width:1px;
+	height:12px;
+	border: .5px solid #000;
+}
+.about_nav>div>a>span{
+	position: absolute;
+	bottom:-10px;
+	margin:auto;
+	left:0;
+	right:0;
+	display: block;
+	width:15px;
+	height:15px;
+	border:1px solid #000;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	background-color: #fff;
+}
+.about_nav>.onAbout>a{
+	color: #f60;
+}
+.about_nav>.onAbout>a>span, .about_nav>.onAbout>a>span:after{
+	border-color: #f60;
+}
+
+.aboutUS_content img{
+	width: 100%;
+}
+
+.aboutUS_content li{
+	/*list-style: decimal;*/
+	list-style: none;
+	line-height: 34px;
+	margin: 10px auto;
+}
+
+/*问答里的css*/
+.commentbox{
+	width: 100%;
+	margin: 20px auto;
+}
+.mytextarea {
+    width: 100%;
+    overflow: auto;
+    word-break: break-all;
+    height: 100px;
+    color: #000;
+    font-size: 1em;
+    resize: none;
+}
+.comment-list{
+	width: 100%;
+	margin: 20px auto;
+	clear: both;
+	padding-top: 20px;
+}
+.comment-list .comment-info{
+	position: relative;
+	margin-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+}
+.comment-list .comment-info header{
+	width: 10%;
+	position: absolute;
+}
+.comment-list .comment-info header img{
+	width: 100%;
+	border-radius: 50%;
+	padding: 5px;
+}
+.comment-list .comment-info .comment-right{
+	padding:5px 0px 5px; 
+}
+.comment-list .comment-info .comment-right h3{
+	margin: 5px 0px;
+}
+.comment-list .comment-info .comment-right .comment-content-header{
+	height: 25px;
+}
+.comment-list .comment-info .comment-right .comment-content-header span,.comment-list .comment-info .comment-right .comment-content-footer span{
+	padding-right: 2em;
+	color: #aaa;
+}
+.comment-list .comment-info .comment-right .comment-content-header span,.comment-list .comment-info .comment-right .comment-content-footer span.reply-btn,.send,.reply-list-btn{
+	cursor: pointer;
+}
+.comment-list .comment-info .comment-right .reply-list {
+	border-left: 3px solid #ccc;
+	padding-left: 7px;
+}
+.comment-list .comment-info .comment-right .reply-list .reply{
+	border-bottom: 1px dashed #ccc;
+}
+.comment-list .comment-info .comment-right .reply-list .reply div span{
+	padding-left: 10px;
+}
+.comment-list .comment-info .comment-right .reply-list .reply p span{
+	padding-right: 2em;
+	color: #aaa;
+}
+@media screen and (min-width: 1200px){
+	#join-advantage1{
+		display: block!important;
+	}
+	#join-advantage2{
+		display: none!important;
+	}
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px){
+	#join-advantage1{
+		display: block!important;
+	}
+	#join-advantage2{
+		display: none!important;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.commentbox{
+		width: 100%;
+	}
+	.comment-list{
+		width: 100%;
+	}
+	#join-advantage1{
+		display: none!important;
+	}
+	#join-advantage2{
+		display: block!important;
+	}
+	.join-advantage>p{
+		line-height: 2;
+	}
+}
+.main-header{
+	font-size: 16px;
+	line-height: 28px;
+}
+.join-advantage>p{
+	margin-top:30px;
+}
+@media screen and (max-width: 786px) {
+	.join-advantage>p{
+		margin-top:10px;
+	}
+}
+.join-advantage>p span{
+	padding-bottom: 4px;
+	font-size: 16px;	
+	/*margin-top: 5px;*/
+	/*border-bottom: 2px solid rgb(255, 102, 22);*/
+}
+.join-advantage>p a{
+	font-size: 16px;
+	color: rgb(255, 102, 22);
+}

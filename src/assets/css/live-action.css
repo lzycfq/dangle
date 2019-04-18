@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+html body{
+	position: relative;
+}
+
+.void_img img{
+	width: 100%;
+}
+
+.content #content_img{
+	position: relative;
+}
+
+.content #content_img:hover .img_l,.content #content_img:hover .img_r{
+	display: block;
+}
+
+.content #content_img>ul>li>a>img{
+	width: 50%;
+	/*height: 540px;*/
+}
+
+.img_l,.img_r{
+	position: absolute;
+	z-index: 1000;
+	top: 45%;
+	/*display: none;*/
+}
+
+.img_l{
+	left: 0;
+}
+
+.img_r{
+	right: 0;
+}
+
+.img_l:hover,.img_r:hover{
+	cursor: pointer;
+}
+
+.content #content_img ul li{
+	display: none;
+}
+
+/*背景层背景的样式*/
+.black_overlay{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:2;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+}
+/*蒙层的内容层*/
+.white_content {
+	display: none;
+	position: fixed;
+	top: 30%;
+	left: 19%;
+	width: auto;
+	height: auto;
+	border: 2px solid pink;
+	background-color: white;
+	z-index:3;
+	overflow: auto;
+}
