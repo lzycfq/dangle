@@ -107,7 +107,7 @@
 					<li class="off"><span>灯具类</span></li>
 
 
-					<p class="mt10"><a href="/Goods/discount.html">特价专区</a></p>
+					<p class="mt10"><router-link to='discount'>特价专区</router-link></p>
 				</ul>
 
 			</div>
@@ -139,7 +139,7 @@
 						<div class="swiper-container">
 							<div class="swiper-wrapper">
 								<swiper :options="scrolltabimg" ref="imageSwiper">
-									<swiper-slide class="swiper-slide"  v-for="(item,index) in scrollfor"><img :src="item.scrollimg" width="100%"></swiper-slide>
+					<swiper-slide class="swiper-slide" v-for="(item,index) in scrollfor" key='index'><img :src="item.scrollimg" width="100%"/></swiper-slide>
 
 								</swiper>
 							</div>
@@ -260,19 +260,14 @@
 <script>
 	import DLheader from '../components/header'
 	import DLfooter from '../components/footer.vue'
-
 	import jquery from '../assets/js/jquery.js'
-	import phone from '../assets/js/phone.js'
-	import roll from '../assets/js/roll.js'
-	import textslider from '../assets/js/textslider.js'
-	import WOW from '../assets/js//WOW.min.js'
 	import bootstrap from '../assets/js/bootstrap.min.js'
-	
+
 	import {
 		swiper,
 		swiperSlide
 	} from 'vue-awesome-swiper';
-	
+
 	export default {
 		name: "index",
 		data() {
@@ -389,23 +384,23 @@
 						"newmoretime": "2019-02-21 14:03:06",
 					}
 				],
-				scrollfor: [
-					{
-					"scrollimg":"http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
+				scrollfor: [{
+						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
 					},
 					{
-					"scrollimg":"http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
-				},
-				{
-				"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
-			},
-			{
-			"scrollimg":"http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
-		}]
-	}
-	},
+						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
+					},
+					{
+						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
+					},
+					{
+						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
+					}
+				]
+			}
+		},
 
-	created() {
+		created() {
 			setInterval(this.scroll, 3000)
 		},
 		mounted() {
@@ -424,10 +419,47 @@
 				})()
 			}
 			new WOW().init();
-
-
 		},
-
+		//移动端下客户评论与经销商说切换
+		mounted() {
+			window.addEventListener('load', function() {
+				var myTab = document.getElementById('tab_zhaos'); //获取整个节点
+				var myUl = myTab.getElementsByClassName('tab_ul')[0]; //获取单个节点
+				var myLi = myUl.getElementsByTagName('li'); //得到数组
+				var myDiv = myTab.getElementsByClassName('tab_a'); //子数组
+				for (var i = 0; i < myLi.length; i++) {
+					myLi[i].index = i;
+					myLi[i].onclick = function() {
+						for (var j = 0; j < myLi.length; j++) {
+							myLi[j].className = 'off col-xs-4';
+							myDiv[j].className = 'tab_a zhaoS_hidden col-lg-4 col-md-4 col-sm-6 col-xs-12';
+						};
+						this.className = 'on col-xs-4';
+						myDiv[this.index].className = 'tab_a zhaoS_show col-lg-4 col-md-4 col-sm-6 col-xs-12';
+					}
+				}
+			});
+		},
+		//移动端下客新闻资讯板块切换
+		mounted() {
+			window.addEventListener('load', function() {
+				var myTab = document.getElementById('index_news'); //获取整个节点
+				var myUl = myTab.getElementsByClassName('tab_ul')[0]; //获取单个节点
+				var myLi = myUl.getElementsByTagName('div'); //得到数组
+				var myDiv = myTab.getElementsByClassName('tab_a'); //子数组
+				for (var i = 0; i < myLi.length; i++) {
+					myLi[i].index = i;
+					myLi[i].onclick = function() {
+						for (var j = 0; j < myLi.length; j++) {
+							myLi[j].className = 'col-xs-6 off ptb10';
+							myDiv[j].className = 'tab_a news_hidden col-sm-6';
+						};
+						this.className = 'col-xs-6 on ptb10';
+						myDiv[this.index].className = 'tab_a news_show col-sm-6';
+					}
+				}
+			});
+		},
 		methods: {
 			scroll() {
 				var that = this;

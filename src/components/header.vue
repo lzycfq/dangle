@@ -10,12 +10,12 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav nav_text" id="tiaozhuan">
-                <li role="presentation"><a title="厨房电器" href="/#tab_menu">核心产品</a></li>
-                <li role="presentation"><a title="关于当乐厨卫" href="/About/about.html">关于当乐</a></li>
-                <li role="presentation"><a title="厨房电器新闻资讯" href="/News/list/0.html">厨电资讯</a></li>
-                <li role="presentation"><a title="品牌传播" href="/Brand/brand.html" rel="nofollow">品牌传播</a></li>
-                <li role="presentation"><a title="招商加盟" href="/Contact/handbook.html" rel="nofollow">招商加盟</a></li>
-                <li role="presentation"><a href="https://www.jd.com" target="_blank" rel="nofollow">在线商城</a></li>
+                <li role="presentation"><router-link to="/" title="厨房电器" >核心产品</router-link></li>
+                <li role="presentation"><router-link to="/about" >关于当乐</router-link></li>
+                <li role="presentation"><router-link to="/listnews" >厨电资讯</router-link></li>
+                <li role="presentation"><router-link to="/brand"  rel="nofollow">品牌传播</router-link></li>
+                <li role="presentation"><router-link to="/handbook"rel="nofollow">招商加盟</router-link></li>
+                <li role="presentation"><router-link to="www.jingdong.com" target="_blank" rel="nofollow">在线商城</router-link></li>
             </ul>
             <form class="navbar-form navbar-right" action="/seek.html" method="post" id="seekID">
                 <div class="form-group">

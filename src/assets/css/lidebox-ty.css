@@ -52,7 +52,7 @@
 	width: 20px;
 	height:50px;
 	cursor: pointer;
-	background-image: url(../img/nav.png);
+/* 	background-image: url(../img/nav.png); */
 	background-position: -10px 5px;
 	background-repeat: no-repeat;
 	opacity: .6;
@@ -63,7 +63,7 @@
 	background-color:#000;
 	opacity: .4;
 }
-.btnright{
+/* .btnright{
 	position: absolute;
 	right: 0;
 	top:50px;
@@ -75,5 +75,5 @@
 	background-position: -55px 5px;
 	background-repeat: no-repeat;
 	opacity: .6;
-}
+} */
 

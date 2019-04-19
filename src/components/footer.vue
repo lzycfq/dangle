@@ -87,7 +87,7 @@
                  <p class="f12 pt10">网站中设计的数据、统计资料或调查结果等属于引证内容的，除特别标注外，其余均来自当乐实验室。</p>
                  <p class="f12 pt10">本网站展示图片及说明仅供参考，各款机型精确参数请注意咨询当乐终端导购、阅读说明书或拨打服务热线400-850-3319</p>
                  <p class="f12 pt10">© COPYRIGHT BY <a class="f12 c_999" href="/"> 当乐厨卫 </a> 2017-2018.<span class="ml24 f12">地址：广东省中山市南头镇东福园尚义路11号</span>
-                     <span class="wechar" :class="fontsize()">
+                     <span class="wechar" >
                          <span class="wechar_img">
                              <a  href="http://www.danglelife.com" onclick="return false;" ><img src="../assets/images/wechat-2.png" alt="当乐厨房电器公众号" style="height: 36px;"></a>
                              <img src="/images/gongzhonghao.jpg" class="gongzhonghao" />
@@ -102,9 +102,9 @@
          </div>
      </div>
      <!--二维码蒙层背景-->
-     <div class="zxc" v-if="zxc"></div>
+     <div class="zxc" ></div>
      <!--蒙层二维码图-->
-     <div class="qwe" v-else="qwe"><img src="../assets/images/gongzhonghao.jpg"/></div>
+     <div class="qwe" ><img src="../assets/images/gongzhonghao.jpg"/></div>
      <!--右侧联系我们-->
      <div id="aboutUs" v-if="hide" class="show768">
          <ul>
@@ -145,19 +145,7 @@ export default {
 		 document.body.scrollTop = 0
      document.documentElement.scrollTop = 0
 		},
-		fontsize(){
-			var phoneW = window.screen.width;
-			if(phoneW <=768){
-			    document.getElementsByClassName(".wechar_img").on('touchend',function(){
-			        this.qwe=true;
-			        this.zxc=true;
-			    });
-			     document.getElementsByClassName(".zxc").on('touchend',function(){
-			       this.qwe=false;
-			     this.zxc=false;
-			    });
-			}
-		}
+		
 	}
 }
 </script>
