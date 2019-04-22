@@ -102,11 +102,9 @@
 				<ul class="tab_ul">
 
 
-					<li class="on"><span>厨房类</span></li>
-					<li class="off"><span>卫浴类</span></li>
-					<li class="off"><span>灯具类</span></li>
-
-
+					<li class="on"><router-link to='chanpinlist'><span>厨房类</span></router-link></li>
+					<li class="off"><router-link to='chanpinlist'><span>卫浴类</span></router-link></li>
+					<li class="off"><router-link to='chanpinlist'><span>灯具类</span></router-link></li>
 					<p class="mt10"><router-link to='discount'>特价专区</router-link></p>
 				</ul>
 

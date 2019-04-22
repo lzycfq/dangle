@@ -15,6 +15,8 @@ import listnews from '@/view/News/listnews'
 import listzhishi from '@/view/News/listzhishi'
 import listzixun from '@/view/News/listzixun'
 import chanpinlist from '@/view/Goods/chanpinlist'
+import detail from '@/view/Goods/detail'
+import discount from '@/view/Goods/discount'
 
 
 Vue.use(Router)
@@ -22,16 +24,26 @@ Vue.use(Router)
 export default new Router({
 	 mode: 'history',
   routes: [
-//     {
-//       path: '/',
-//       name: 'index',
-//       component: index
-//     },
-{
+    {
       path: '/',
+      name: 'index',
+      component: index
+    },
+{
+      path: '/chanpinlist',
       name: 'chanpinlist',
       component: chanpinlist
     },
+	{
+	      path: '/detail',///detail/:id 带上后端才请求产品详情参数
+	      name: 'detail',
+	      component: detail
+	    },
+{
+	      path: '/discount',///detail/:id 带上后端才请求产品详情参数
+	      name: 'discount',
+	      component: discount
+	    },
  {
       path: '/listnews',
       name: 'listnews',
