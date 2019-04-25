@@ -8,8 +8,8 @@
 			<div style="overflow: hidden;position: relative;">
 				<div class="about_nav">
 					<div class="onAbout"><router-link to="/about">集团介绍<span></span></router-link></div>
-					<div><router-link to="/course">企业历程<span></span></router-link></div>
-					<div><router-link to="/jiazhiguan">企业价值观<span></span></router-link></div>
+					<div><router-link to="/course" style="color: #333;">企业历程<span></span></router-link></div>
+					<div><router-link to="/jiazhiguan" style="color: #333;">企业价值观<span></span></router-link></div>
 				</div>
 				<hr style="position: absolute;width: 100%;background-color: #000;bottom: -4px;z-index: 1;" />
 			</div>

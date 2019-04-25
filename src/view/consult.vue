@@ -6,9 +6,9 @@
 		<section class="container aboutUS_content">
 			<div style="overflow: hidden;position: relative;">
 				<div class="about_nav">
-					<div><router-link to="/message">代理经销商留言<span></span></router-link></div>
+					<div><router-link to="/message" style="color: #333;">代理经销商留言<span></span></router-link></div>
 					<div class="onAbout"><router-link to="/consult">招商咨询<span></span></router-link></div>
-					<div><router-link to="/handbook">招商手册<span></span></router-link></div>
+					<div><router-link to="/handbook" style="color: #333;">招商手册<span></span></router-link></div>
 				</div>
 				<hr style="position: absolute;width: 100%;background-color: #000;bottom: -4px;z-index: 1;" />
 			</div>

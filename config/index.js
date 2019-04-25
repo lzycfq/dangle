@@ -10,6 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+	proxyTable: {
+	    '/api': {
+	        target: 'http://localhost:8080/index',//设置你调用的接口域名和端口号 别忘了加http
+	        changeOrigin: true,
+	        pathRewrite: {
+	            '^/api': ''
+	        }
+	    }
+	},
     proxyTable: {},
 
     // Various Dev Server settings

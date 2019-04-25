@@ -7,13 +7,13 @@
 			<div style="overflow: hidden;position: relative;">
 				<div class="about_nav">
 					<div class="onAbout">
-						<router-link to="/message">代理经销商留言<span></span></router-link>
+						<router-link to="/message" >代理经销商留言<span></span></router-link>
 					</div>
 					<div>
-						<router-link to="/consult">招商咨询<span></span></router-link>
+						<router-link to="/consult" style="color: #333;">招商咨询<span></span></router-link>
 					</div>
 					<div>
-						<router-link to="/handbook">招商手册<span></span></router-link>
+						<router-link to="/handbook" style="color: #333;">招商手册<span></span></router-link>
 					</div>
 				</div>
 				<hr style="position: absolute;width: 100%;background-color: #000;bottom: -4px;z-index: 1;" />
@@ -125,7 +125,7 @@
 				} else {
 					
 					var formData = JSON.stringify(this.user);
-					this.$http.post('/path/to', formData).then((response) => {
+					this.$get.post('/path/to', formData).then((response) => {
 						// success callback
 					}, (response) => {
 						// error callback

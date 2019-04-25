@@ -17,9 +17,9 @@
                 <li role="presentation"><router-link to="/handbook"rel="nofollow">招商加盟</router-link></li>
                 <li role="presentation"><router-link to="www.jingdong.com" target="_blank" rel="nofollow">在线商城</router-link></li>
             </ul>
-            <form class="navbar-form navbar-right" action="/seek.html" method="post" id="seekID">
+            <form class="navbar-form navbar-right" @submit.prevent="seek">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="产品型号" name="content">
+                    <input type="text" class="form-control"  v-model="seek.seekname" placeholder="产品型号" name="content">
                 </div>
                 <input type="submit" class="btn btn-default" id="seekBtn" value="搜索">
             </form>
@@ -27,5 +27,28 @@
     </nav>
 </header>
 </template>
-<script></script>
+<script>
+	export default {
+		name: "header",
+		data() {
+		
+			return {
+				}
+				seek:{
+					seekname:''
+				}
+				},
+				methods:{
+					seek(){
+						var formData = JSON.stringify(this.seek);
+						this.$get.post('/path/to', formData).then((response) => {
+							// success callback
+						 router.push('/seek');
+						}, (response) => {
+							// error callback
+						});
+					}
+				}
+				}
+</script>
 <style></style>

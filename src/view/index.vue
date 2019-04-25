@@ -1,41 +1,20 @@
 <template>
 	<div>
 		<DLheader></DLheader>
-
 		<!--头部轮播图片-->
 		<!--平板和电脑端展示出来-->
 		<div id="carousel-example-generic" class="carousel slide lunbo_img show768" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-			</ol>
+				<li v-for="(item, index) in pcbannerdata"  data-target="#carousel-example-generic"
+			 :data-slide-to="item.index" :class="[index == 0 ? 'active' : '']"></li>
 
+			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="div">
-				<div class="item active">
-					<img src="../assets/images/index/header01.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../assets/images/index/header02.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../assets/images/index/header03.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../assets/images/index/header04.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../assets/images/index/header05.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
+					<div class="item" v-for="(item,index) in pcbannerdata"  :class="[index == 0 ? 'active' : '']">
+							<img :src="item.dataimg" />
+					</div>
 			</div>
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -52,17 +31,16 @@
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					<swiper :options="imageSwiperOptions" ref="imageSwiper" class='section-wrap'>
-						<swiper-slide class="swiper-slide"><img src="../assets/images/index/phone02.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" /></swiper-slide>
-						<swiper-slide class="swiper-slide"><img src="../assets/images/index/phone03.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" /></swiper-slide>
-						<swiper-slide class="swiper-slide"><img src="../assets/images/index/phone04.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" /></swiper-slide>
-						<swiper-slide class="swiper-slide"><img src="../assets/images/index/phone05.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" /></swiper-slide>
+						<swiper-slide class="swiper-slide" v-for="(item, index) in mbbannerdata" :key="index">
+							<img :src="item.mbdataimg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" />
+							</swiper-slide>
+						
 					</swiper>
 				</div>
 				<!-- Add Pagination -->
 				<div class="swiper-pagination"></div>
 			</div>
 		</div>
-
 		<!--加盟保障-->
 		<div class="baozhang_index show768">
 			<div class="text_center" style="padding-top: 70px;">
@@ -100,17 +78,21 @@
 		<div class="container louceng mtb20">
 			<div id="tab_menu" style="overflow: hidden;">
 				<ul class="tab_ul">
-
-
-					<li class="on"><router-link to='chanpinlist'><span>厨房类</span></router-link></li>
-					<li class="off"><router-link to='chanpinlist'><span>卫浴类</span></router-link></li>
-					<li class="off"><router-link to='chanpinlist'><span>灯具类</span></router-link></li>
-					<p class="mt10"><router-link to='discount'>特价专区</router-link></p>
+					<li class="on">
+						<router-link to='chanpinlist'><span>厨房类</span></router-link>
+					</li>
+					<li class="off">
+						<router-link to='chanpinlist'  style="color: #333;">卫浴类</router-link>
+					</li>
+					<li class="off">
+						<router-link to='chanpinlist'  style="color: #333;">灯具类</router-link>
+					</li>
+					<p class="mt10">
+						<router-link to='discount' >特价专区</router-link>
+					</p>
 				</ul>
-
 			</div>
 			<div style="overflow: hidden;margin-top: 10px;">
-
 				<div class="col-sm-6 pb10">
 					<img src="http://dangle.yunsta.com/uploads/type/5c76524513997.jpg" alt="" title="" style="max-width: 100%;">
 
@@ -121,9 +103,7 @@
 				</div>
 				<div class="col-sm-6 pb10">
 					<img src="http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg" alt="" title="" style="max-width: 100%;">
-
 				</div>
-
 				<div class="col-sm-6 pb10">
 					<img src="../assets/images/index/tejia.jpg" alt="特价专区" title="特价专区" style="max-width: 100%;">
 				</div>
@@ -137,8 +117,8 @@
 						<div class="swiper-container">
 							<div class="swiper-wrapper">
 								<swiper :options="scrolltabimg" ref="imageSwiper">
-					<swiper-slide class="swiper-slide" v-for="(item,index) in scrollfor" key='index'><img :src="item.scrollimg" width="100%"/></swiper-slide>
-
+									<swiper-slide class="swiper-slide" v-for="(item,index) in scrollfor" :key='index'><img :src="item.scrollimg"
+										 width="100%" /></swiper-slide>
 								</swiper>
 							</div>
 							<div class="swiper-button-next swiper-button-white"></div>
@@ -198,7 +178,6 @@
 						<router-link :to="{path:'/about'}" style="color: #444444;">当乐新闻<img src="../assets/images/arrow_right_2.png"></router-link>
 					</p>
 					<div>
-
 						<div style="overflow: hidden;height: 150px;margin-top: 15px;" v-for="(item,index) in danglenew">
 							<!--左-->
 							<div style="width: 35%;margin-right:1.5%;float: left;height: 100%;text-align: center;overflow: hidden;"><img
@@ -216,8 +195,6 @@
 							<p class="news_index_two_content f13">{{item.newmorecontent}}</p>
 							<p class="news_index_two_time f12">{{item.newmoretime}}</p>
 						</div>
-
-
 					</div>
 				</div>
 				<div class="tab_a news_show col-sm-6">
@@ -225,7 +202,6 @@
 						<router-link :to="{path:''}" style="color: #444444;">厨电咨询<img src="../assets/images/arrow_right_2.png"></router-link>
 					</p>
 					<div>
-
 						<div style="overflow: hidden;height: 150px;margin-top: 15px;" v-for="(item,index) in danglenew">
 							<!--左-->
 							<div style="width: 35%;margin-right:1.5%;float: left;height: 100%;text-align: center;overflow: hidden;"><img
@@ -244,23 +220,16 @@
 							<p class="news_index_two_time f12">{{item.newmoretime}}</p>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
-
 		<DLfooter></DLfooter>
-
 	</div>
-
 </template>
 
 <script>
 	import DLheader from '../components/header'
 	import DLfooter from '../components/footer.vue'
-	import jquery from '../assets/js/jquery.js'
-	import bootstrap from '../assets/js/bootstrap.min.js'
-
 	import {
 		swiper,
 		swiperSlide
@@ -301,105 +270,25 @@
 						prevEl: '.swiper-button-prev',
 					},
 				},
-				customerspeak: [{
-						"cuscontent": "如果你的脑海里出现了“放弃”两个字，一定要坚定地告诉自己：你都一无所有了，哪来东西让你放弃！"
-					},
-					{
-						"cuscontent": "当在做了所有的努力之后，你发现都是你在自作多情，多此一举，那种心情别提有多糟了。"
-					},
-					{
-						"cuscontent": "我再也不想听见任何人、任何形式的对不起， 我想被对得起"
-					},
-					{
-						"cuscontent": "现在才知道人心易变，挥挥手便是无期。"
-					},
-					{
-						"cuscontent": "我一生最怕是闲，一闲就把生命的意义全失去了。"
-					},
-					{
-						"cuscontent": "如果有一天，有人甘愿承受你的所有。接受你的坏，拥抱你的好。你知道，这个人，就是那个对的人。"
-					},
-					{
-						"cuscontent": "在这个吵得人分不清东南西北得世界里，我们手里所持有的干干净净的初衷，不多了。握好了，别丢了。明天还要赶很远的路。"
-					},
-					{
-						"cuscontent": "谢谢陪我到每一站的你们，遇见你是我的幸运。"
-					},
-					{
-						"cuscontent": "靠谱的人生特征大抵这六个字：言寡、体勤、心静。"
-					},
-					{
-						"cuscontent": "我很容易做一件错事就是：关系不深，话说太多。"
-					},
-					{
-						"cuscontent": "最卑微的大概是，你很长一段时间不理我，我明明难过的不得了，可是你一开始和我说话，我又开心到好像什么事都没发生过。"
-					}
-				],
-				sellspeakcontent: [{
-						"sellspeak": "不奋斗，你的才华如何配上你的任性；不奋斗，你的脚步如何赶上父母老去的速度；不奋斗，世界那么大，你靠什么去看看！"
-					},
-					{
-						"sellspeak": "想了很久还是觉得，钱才是真正治愈心灵的良药鸭"
-					},
-					{
-						"sellspeak": "人都有以第一印象定好坏的习惯，认为一个人好时，就会爱屋及乌；认为一个人不好时，就会全盘否认。"
-					},
-					{
-						"sellspeak": "勉勉强强的东西都特别没意思，爱情是，友情是，一切都是。讨厌勉强，想要那种无所畏惧的心甘情愿。"
-					},
-					{
-						"sellspeak": "不要太在意某些人说的话，因为他们有嘴，但不一定有脑。"
-					},
-					{
-						"sellspeak": "人们总是喜欢用“如果”，去勾勒一些莫须有的奇迹，可大部分“如果”都不可兑现。"
-					},
-					{
-						"sellspeak": "不要太乖，不想做的事可以拒绝，做不到的事不用勉强，不喜欢的话假装没听见，你的人生不是用来讨好别人，而是善待自己。"
-					},
-					{
-						"sellspeak": "相逢太短，等不及茶凉，你若驻足，我陪你走完风霜。"
-					}
-				],
-				danglenew: [{
-					"newimg": "https://mpt.135editor.com/mmbiz_jpg/NnEeBiaKA3UAT0dj7uAlNsnYZ6mMT7nqFXBZyibmWngavpGwsKQKhuGfyRSeBXZ9C6EPaF5RdRMBeRVHR7p4IeCg/640?wx_fmt=jpeg",
-					"newtitle": "敬初心、守匠心、赢未来！——贺当乐",
-					"newcontent": "敬初心、 守匠心、 赢未来！—— 贺当乐整体厨卫春季大型招商会圆满落幕！2019· 03· 05 蓦然回首间， 当乐已稳步走过又一轮春夏秋冬， 2018 已圆满跨越， 2019 已扬帆起航 ",
-					"newtime": "2019-03-07 11:41:39",
-				}],
-				newmore: [{
-						"newmoretitle": "2019厨卫市场大趋势：创新、高精尖、健康、套系化是重点！",
-						"newmorecontent": "新年新气象，“金厨银卫”装修正当时。随着精装房时代的到来，消费者对于厨卫产品的需求日益",
-						"newmoretime": "2019-03-02 15:59:53",
-					},
-					{
-						"newmoretitle": "听说这个品牌最近很火？背后真相竟然是这样！",
-						"newmorecontent": "五年很短，弹指一挥间，转瞬即逝；五年也很长，长到足够完成充分的积累与沉淀，带来“质”的飞",
-						"newmoretime": "2019-03-02 15:55:47",
-					},
-					{
-						"newmoretitle": "【邀请函】巅峰盛会，等您前来！——当乐整体厨卫2019春季大型招商会",
-						"newmorecontent": "当乐整体厨卫2019春季大型招商会将于3月5日在广东中山正式启幕，特此敬上邀请函一封",
-						"newmoretime": "2019-02-21 14:03:06",
-					}
-				],
-				scrollfor: [{
-						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
-					},
-					{
-						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
-					},
-					{
-						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
-					},
-					{
-						"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
-					}
-				]
+                pcbannerdata: [],
+				mbbannerdata:[],
+				customerspeak: [],
+				sellspeakcontent: [],
+				danglenew: [],
+				scrollfor: [],
+				newmore:[]
 			}
 		},
 
 		created() {
-			setInterval(this.scroll, 3000)
+			setInterval(this.scroll, 3000);
+			this.buildpcbannerdata();
+			this.buildmbbannerdata();
+			this.buildcustomerspeak();
+			this.buildsellspeakcontent();
+			this.builddanglenew();
+			this.buildscrollfor();
+			this.buildnewmore();
 		},
 		mounted() {
 			window.onresize = () => {
@@ -472,8 +361,65 @@
 					con[1].style.marginTop = '0px';
 					that.animate = !that.animate;
 				}, 0)
-			}
-
+			},
+			//pc主页轮播数据
+			buildpcbannerdata(){
+				this.axios.get('/api/pclunbodata').then(res => {
+					this.pcbannerdata = res.data.data //请求出来的标签数据
+				
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
+			//移动端轮播数据
+				buildmbbannerdata(){
+				this.axios.get('/api/mbbannerdata').then(res => {
+					this.mbbannerdata = res.data.data //请求出来的标签数据
+				
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
+			buildcustomerspeak(){
+				this.axios.get('/api/customerspeak').then(res => {
+					this.customerspeak = res.data.data //请求出来的标签数据
+				
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
+			
+			buildsellspeakcontent(){
+				this.axios.get('/api/sellspeakcontent').then(res => {
+					this.sellspeakcontent = res.data.data //请求出来的标签数据
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
+			
+			builddanglenew(){
+				this.axios.get('/api/danglenew').then(res => {
+					this.danglenew = res.data.data //请求出来的标签数据
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
+			
+				buildscrollfor(){
+				this.axios.get('/api/scrollfor').then(res => {
+					this.scrollfor = res.data.data //请求出来的标签数据
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
+			
+			buildnewmore(){
+				this.axios.get('/api/newmore').then(res => {
+					this.newmore = res.data.data //请求出来的标签数据
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
 		},
 		components: {
 			'swiper': swiper,
@@ -486,7 +432,7 @@
 </script>
 
 <style>
-	@import "../assets/css/bootstrap.min.css";
+	/* //@import "../assets/css/bootstrap.min.css"; */
 	@import "../assets/css/public.css";
 	@import "../assets/css/dangle.css";
 	@import "../assets/css/index.css";

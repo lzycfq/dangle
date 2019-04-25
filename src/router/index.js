@@ -17,6 +17,7 @@ import listzixun from '@/view/News/listzixun'
 import chanpinlist from '@/view/Goods/chanpinlist'
 import detail from '@/view/Goods/detail'
 import discount from '@/view/Goods/discount'
+import seek from '@/view/Goods/seek'
 
 
 Vue.use(Router)
@@ -34,8 +35,13 @@ export default new Router({
       name: 'chanpinlist',
       component: chanpinlist
     },
+		{
+		      path: '/seek',
+		      name: 'seek',
+		      component: seek
+		    },
 	{
-	      path: '/detail',///detail/:id 带上后端才请求产品详情参数
+	      path: '/detail/:id',///detail/:id 带上后端才请求产品详情参数
 	      name: 'detail',
 	      component: detail
 	    },

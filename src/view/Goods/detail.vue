@@ -1,81 +1,60 @@
 <template>
 	<div class="all">
 		<DLheader></DLheader>
-		   <!--位置-->
-		   <div v-for="(item,index) in bannerxh" :key="index">
+		<!--位置-->
+
 		<div class="bg_f8 b_b_bbb">
-		  <div class="l-sub container">
-		    <div class="f-cb" v-for="(item,index) in item.weizhi" :key="index">
-		      <router-link to="/">首页</router-link><span><img src="../../assets/images/arrow_right_2.png" width="12px" height="12px"></span>
-		      <router-link to="/chanpinlist">{{item.xinghaoname}}</router-link><span><img src="../../assets/images/arrow_right_2.png" width="12px" height="12px"></span>
-		        <span class="cur" style="display: block;font-size: 12px;padding: 0 5px;">{{item.xinghao}}</span>
-		          </div>
-		        </div>
-		    </div>
-		
-		<div id="carousel-example-generic" class="carousel slide lunbo_img show768" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-			</ol>
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox" id="div">
-				<div class="item active">
-					<img src="../../assets/images/index/header01.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../../assets/images/index/header02.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../../assets/images/index/header03.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../../assets/images/index/header04.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
-				</div>
-				<div class="item">
-					<img src="../../assets/images/index/header05.jpg" alt="当乐厨房电器-中国十大厨电品牌,厨房电器加盟之首选!">
-
+			<div class="l-sub container">
+				<div class="f-cb">
+					<router-link to="/">首页</router-link><span><img src="../../assets/images/arrow_right_2.png" width="12px" height="12px"></span>
+					<router-link to="/chanpinlist">1</router-link><span><img src="../../assets/images/arrow_right_2.png" width="12px"
+						 height="12px"></span>
+					<span class="cur" style="display: block;font-size: 12px;padding: 0 5px;">1</span>
 				</div>
 			</div>
-			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="font-size:20px;"></span>
-				<!--<span class="sr-only">Previous</span>-->
-			</a>
-			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="font-size:20px;"></span>
-				<!--<span class="sr-only">Next</span>-->
-			</a>
-		</div>
-		<!--手机端才显示下面的轮播-->
-		<div class="slide_div hidden768">
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<swiper :options="imageSwiperOptions" ref="imageSwiper" class='section-wrap'>
-						<swiper-slide class="swiper-slide"><img src="../../assets/images/index/phone02.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!"
-							 style="width: 100%;" /></swiper-slide>
-						<swiper-slide class="swiper-slide"><img src="../../assets/images/index/phone03.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!"
-							 style="width: 100%;" /></swiper-slide>
-						<swiper-slide class="swiper-slide"><img src="../../assets/images/index/phone04.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!"
-							 style="width: 100%;" /></swiper-slide>
-						<swiper-slide class="swiper-slide"><img src="../../assets/images/index/phone05.jpg" alt="当乐厨房电器-厨房电器加盟首选品牌!"
-							 style="width: 100%;" /></swiper-slide>
-					</swiper>
+
+
+			<!--平板和电脑端展示出来-->
+			<div id="carousel-example-generic" class="carousel slide lunbo_img show768" data-ride="carousel"  v-for="(item, id) in allpcbannerdetail"
+			>
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li v-for="(item, index) in item.pcbannerdetail" data-target="#carousel-example-generic" :data-slide-to="item.index"
+					 :class="[index == 0 ? 'active' : '']"></li>
+				</ol>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox" id="div">
+					<div class="item" v-for="(item,index) in item.pcbannerdetail" id="getid" :data-indexId="item.id" :class="[index == 0 ? 'active' : '']">
+						<img :src="item.dataimg" />
+					</div>
 				</div>
-				<!-- Add Pagination -->
-				<div class="swiper-pagination"></div>
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="font-size:20px;"></span>
+					<!--<span class="sr-only">Previous</span>-->
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="font-size:20px;"></span>
+					<!--<span class="sr-only">Next</span>-->
+				</a>
+			</div>
+			<!--手机端才显示下面的轮播-->
+			<div class="slide_div hidden768">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<swiper :options="imageSwiperOptions" ref="imageSwiper" class='section-wrap' v-for="(item,index) in allmbbannerdetail">
+							<swiper-slide class="swiper-slide" v-for="(item, index) in item.mbbannerdetail" :key="index">
+								<img :src="item.mbdataimg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" />
+							</swiper-slide>
+
+						</swiper>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
 			</div>
 		</div>
-		</div>
+
 		<!--详细信息介绍-->
 		<div class="container mt20" v-for="(item,index) in detailcontent">
 			<ul>
@@ -109,10 +88,11 @@
 	export default {
 		name: "detail",
 		data() {
-
 			var self = this;
 			return {
 				id: this.$route.params.id, //产品列表传参
+				allpcbannerdetail: [],
+				allmbbannerdetail: [],
 				imageSwiperOptions: {
 					loop: true,
 					spaceBetween: 30,
@@ -126,46 +106,49 @@
 						clickable: true,
 					}
 				},
-				detailcontent: [{
-					detailjiage: "350",
-					detailimg: "http://dangle.yunsta.com/ueditor/upload/image/20190219/1550546672387609.jpg",
-					nextprev: [{
-						detailprev: "充气娃娃",
-						detailprodectname: "避孕套",
-						detailnext: "火箭筒"
-					}]
-
-				}],
-			    bannerxh:[
-					{
-						weizhi:[
-							{
-								xinghaoname:"角落",
-								xinghao:"GD-8852"
-							}
-						]
-					}
-				]
+				detailcontent: []
 			}
 		},
-		// 		created(){
-		// 			this.buildingInfo();
-		// 		}，
-		// 		methods:{
-		// 			//获取产品信息 示范
-		// 			buildingInfo() {
-		// 				this.axios.get('/admin/' + this.id + '/info',{
-		// 				    params:{
-		// 				        'preview':this.preview,
-		// 					}
-		// 				}).then(res => {
-		// 					this.detailcontent = res.data; //请求出来的楼盘数据
-		// 					// console.log(res.data);
-		// 				}).catch(function(error) {
-		// 					// console.log(error);
-		// 				})
-		// 			},
-		// 		},
+		created() {
+			this.buildallpcbannerdetail();
+			this.buildallmbbannerdetail();
+			this.builddetailcontent();
+
+		},
+		methods: {
+			
+			//获取产品信息 示范
+			buildallpcbannerdetail(index) {
+				var id = this.id;
+				this.axios.get('/api/goods/'+id).then(res => {
+					
+					this.allpcbannerdetail = res.data.data
+					
+				}).catch(function(error) {
+				
+					console.log(error);
+
+				})
+			},
+			//获取产品信息 示范
+			buildallmbbannerdetail() {
+				this.axios.get('/api/allmbbannerdetail').then(res => {
+					this.allmbbannerdetail = res.data.data //请求出来的标签数据								
+				}).catch(function(error) {
+					console.log(error);
+
+				})
+			},
+			//获取产品信息 示范
+			builddetailcontent() {
+				this.axios.get('/api/detailcontent').then(res => {
+					this.detailcontent = res.data.data //请求出来的标签数据
+				}).catch(function(error) {
+					console.log(error);
+
+				})
+			}
+		},
 		components: {
 			DLheader,
 			DLfooter,
