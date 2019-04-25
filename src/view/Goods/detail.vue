@@ -15,8 +15,7 @@
 
 
 			<!--平板和电脑端展示出来-->
-			<div id="carousel-example-generic" class="carousel slide lunbo_img show768" data-ride="carousel"  v-for="(item, id) in allpcbannerdetail"
-			>
+			<div id="carousel-example-generic" class="carousel slide lunbo_img show768" data-ride="carousel" v-for="(item, id) in allpcbannerdetail">
 				<!-- Indicators -->
 				<ol class="carousel-indicators">
 					<li v-for="(item, index) in item.pcbannerdetail" data-target="#carousel-example-generic" :data-slide-to="item.index"
@@ -91,7 +90,8 @@
 			var self = this;
 			return {
 				id: this.$route.params.id, //产品列表传参
-				allpcbannerdetail: [],
+				
+				allpcbannerdetail:[],
 				allmbbannerdetail: [],
 				imageSwiperOptions: {
 					loop: true,
@@ -114,18 +114,18 @@
 			this.buildallmbbannerdetail();
 			this.builddetailcontent();
 
+
 		},
 		methods: {
-			
+
 			//获取产品信息 示范
 			buildallpcbannerdetail(index) {
 				var id = this.id;
-				this.axios.get('/api/goods/'+id).then(res => {
+				this.axios.get('/api/allpcbannerdetail/').then(res => {
 					
-					this.allpcbannerdetail = res.data.data
-					
+				this.allpcbannerdetail = res.data.data //请求出来的标签数据	
 				}).catch(function(error) {
-				
+
 					console.log(error);
 
 				})
@@ -133,7 +133,9 @@
 			//获取产品信息 示范
 			buildallmbbannerdetail() {
 				this.axios.get('/api/allmbbannerdetail').then(res => {
-					this.allmbbannerdetail = res.data.data //请求出来的标签数据								
+									
+					this.allmbbannerdetail = res.data.data //请求出来的标签数据	
+												
 				}).catch(function(error) {
 					console.log(error);
 
