@@ -2,7 +2,6 @@
 	<div class="all">
 		<DLheader></DLheader>
 		<!--位置-->
-
 		<div class="bg_f8 b_b_bbb">
 			<div class="l-sub container">
 				<div class="f-cb" v-for="(item,index) in weizhi">
@@ -39,7 +38,7 @@
 			<div class="slide_div hidden768">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
-						<swiper :options="imageSwiperOptions" ref="imageSwiper" class='section-wrap' v-for="(item,index) in allmbbannerdetail">
+						<swiper :options="imageSwiperOptions" ref="imageSwiper" class='section-wrap' v-for="(item,index) in allmbbannerdetail" :key="index">
 							<swiper-slide class="swiper-slide" v-for="(item, index) in item.mbbannerdetail" :key="index">
 								<img :src="item.mbdataimg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" />
 							</swiper-slide>
@@ -51,7 +50,6 @@
 				</div>
 			</div>
 		</div>
-
 		<!--详细信息介绍-->
 		<div class="container mt20" v-for="(item,index) in detailcontent">
 			<ul>
@@ -73,11 +71,9 @@
 		<DLfooter></DLfooter>
 	</div>
 </template>
-
 <script>
 	import DLheader from '../../components/header.vue'
 	import DLfooter from '../../components/footer.vue'
-
 	import {
 		swiper,
 		swiperSlide
@@ -136,7 +132,10 @@
 // 										        this.allpcbannerdetail[0] = res.data.sb[newId-1];	
 // 										 }
 // 										}
-
+//    const goods=this.data.sb.filter(item=>{
+//       return this.sb[i].id==id;
+// 	  alert(id)
+//     });
 					if (newId) {
 						this.allpcbannerdetail[0] = res.data.sb[newId - 1];
 					}
