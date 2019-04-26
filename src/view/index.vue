@@ -93,19 +93,8 @@
 				</ul>
 			</div>
 			<div style="overflow: hidden;margin-top: 10px;">
-				<div class="col-sm-6 pb10">
-					<img src="http://dangle.yunsta.com/uploads/type/5c76524513997.jpg" alt="" title="" style="max-width: 100%;">
-
-				</div>
-				<div class="col-sm-6 pb10">
-					<img src="http://dangle.yunsta.com/uploads/type/5c765256a7546.jpg" alt="" title="" style="max-width: 100%;">
-
-				</div>
-				<div class="col-sm-6 pb10">
-					<img src="http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg" alt="" title="" style="max-width: 100%;">
-				</div>
-				<div class="col-sm-6 pb10">
-					<img src="../assets/images/index/tejia.jpg" alt="特价专区" title="特价专区" style="max-width: 100%;">
+				<div class="col-sm-6 pb10"  v-for="(item,index) in churouter">
+					<router-link to="{ name:'detail', params: { id: item.chuguiid }}"><img :src="item.chuimg" alt="" title="" style="max-width: 100%;"></router-link>
 				</div>
 			</div>
 		</div>
@@ -276,7 +265,25 @@
 				sellspeakcontent: [],
 				danglenew: [],
 				scrollfor: [],
-				newmore:[]
+				newmore:[],
+				churouter:[
+					{
+						"chuimg":"http://dangle.yunsta.com/uploads/type/5c76524513997.jpg",
+						"chuid":1
+					},
+					{
+						"chuimg":"http://dangle.yunsta.com/uploads/type/5c765256a7546.jpg",
+						"chuid":2
+					},
+					{
+						"chuimg":"http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg",
+						"chuid":3
+					},
+					{
+						"chuimg":"http://dangle.yunsta.com/uploads/type/5c765256a7546.jpg",
+						"chuid":4
+					}
+				]
 			}
 		},
 

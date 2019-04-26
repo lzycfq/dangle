@@ -23,7 +23,7 @@
 				<ul class="tab_ul">
 					<li v-for="(value,key) in base" :class="key === base_index?' active':''" :key="key" @click="changeBaseIndex(key)"><span>{{value.tabs}}</span></li>
 				</ul>
-				<div class="tab_content xqtabs" v-for="(item,index) in dianqi" :class="index === base_index?'active':''" :key="index">
+				<div class="tab_content xqtabs" v-for="(item,index) in dianqis" :class="index === base_index?'active':''" :key="index">
 					<!--电气类content-->
 					<div class="container-fluid show_content tab_a ">
 						<ul class="chudian">
@@ -38,16 +38,14 @@
 
 		</div>
 		<!--产品-->
-		<div class="container" v-for="(item,index) in productlist" :key="index">
-			<div class="mt10">
-				<!-- 产品类型 -->
-
+		<div class="container">
+			<!-- <div class="mt10">
 				<p class="suojin2 mb10 pt10 pb10 ft2 f b_b_bbb">类型：</span>
 
 					<span class="p_flanks10 m_flanks5" @click="type_index()" v-for='(item,index) in item.listbiaoqian'>{{item.biaoqian}}</span>
 
 				</p>
-			</div>
+			</div> -->
 
 		<!-- 产品列表 -->
 		<ul class="product_commodity">
@@ -55,12 +53,12 @@
 			<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_show" v-for="(item,index) in productlistcontent.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index">
 				<router-link :to="{ name:'detail', params: { id: item.id }}">
 					<div class="po_re" style="width: 100%;background-color: rgba(238,238,238,.3);border-radius: 5px;"><img :src="item.productlistimg" />
-						<div class="s_title" v-if="item.productlisttitle.length!=0">
+						<div class="s_title" v-if="item.type == 1">
 							<span>{{item.productlisttitle}}</span>
 						</div>
-							<div class="s_title" v-else>
+							<div class="s_title" style="display: none;" v-else="item.type == 2">
 							<span>{{item.productlisttitle}}</span>
-						</div>
+						</div> 
 						</div>
 
 						<p class="text_center" style="height: 1.8rem;line-height: 1.8rem;font-size: 1rem;color: #333333;">{{item.productxinghao}}</p>
@@ -102,262 +100,21 @@
 			return {
 				currentPage: 1, //初始页
 				pagesize: 8, //每页的数据
-				dianqi: [{
-						dianqicontent: [{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f1238592e.png",
-								dianqiname: "吸油烟机"
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f14857f1f.png",
-								dianqiname: "燃气灶"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f16142520.png",
-								dianqiname: "消毒柜"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f17f9a259.png",
-								dianqiname: "燃气热水器"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f19e9b4fe.png",
-								dianqiname: "嵌入式蒸箱"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f1b51d67c.png",
-								dianqiname: "嵌入式烤箱"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f2261fb74.png",
-								dianqiname: "净水器"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f23517de4.png",
-								dianqiname: "集成灶"
-
-							}
-						]
-					},
-					{
-						dianqicontent: [{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f3604c246.png",
-								dianqiname: "五金挂件"
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f37cf3c77.png",
-								dianqiname: "电热水器"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f39abd81e.png",
-								dianqiname: "浴室柜"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f3ae544fd.png",
-								dianqiname: "陶瓷件"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f4b69b62a.png",
-								dianqiname: "浴缸"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f4c8df447.png",
-								dianqiname: "淋浴房"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f62e6f512.png",
-								dianqiname: "五金水龙头"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f62e6f512.png",
-								dianqiname: "水槽"
-
-							},
-
-						]
-					},
-					{
-						dianqicontent: [{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f686c311f.png",
-								dianqiname: "吊灯"
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f7a9cc42d.png",
-								dianqiname: "吊扇灯"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f7b9b3562.png",
-								dianqiname: "光源灯带"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f8d8d88ca.png",
-								dianqiname: "过道灯"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f8ed0cf94.png",
-								dianqiname: "开关插座"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f909dc29e.png",
-								dianqiname: "客厅灯"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f92447d9c.png",
-								dianqiname: "平板灯"
-
-							},
-							{
-								dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f9445b18e.png",
-								dianqiname: "卧室灯"
-
-							},
-						],
-					}
-
-				],
-				base_index: 0,
-				base: [{
-						"tabs": "厨电类"
-					},
-					{
-						"tabs": "卫浴类"
-					},
-					{
-						"tabs": "灯具类"
-					},
-					{
-						"tabs": "特价专区"
-					}
-				],
-				productlist: [{
-					listbiaoqian: [{
-							biaoqian: "全部"
-						},
-						{
-							biaoqian: "角蓝"
-						},
-						{
-							biaoqian: "挂钩套件"
-						},
-						{
-							biaoqian: "挂钩"
-						}
-
-
-					],
-				}],
-				productlistcontent:[
-					{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8802",
-					productjiage:"350",
-					id:"1"
-					
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c2ef32cc1.jpg",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8712",
-					productjiage:"440",
-					id:"2"
-
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c2da1d432.png",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8802",
-					productjiage:"450",
-					id:"3"
-
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c02775464.png",
-					productlisttitle:"特价",
-					productxinghao:"DJL-4802",
-					productjiage:"340",
-					id:"4"
-
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c26b472bf.jpg",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8902",
-					productjiage:"550",
-					id:"5"
-
-					
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8702",
-					productjiage:"150",
-					id:"6"
-
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c23ecdce1.jpg",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8102",
-					productjiage:"350",
-					id:"7"
-
-					
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8102",
-					productjiage:"310",
-					id:"8"
-
-					
-				},
-				{
-					productlistimg:"http://dangle.yunsta.com/uploads/product/5c46c222d5b71.jpg",
-					productlisttitle:"特价",
-					productxinghao:"DJL-8402",
-					productjiage:"340",
-					id:"9"
-
-					
-				},
-				]
-				
-					
-			}
-
+				dianqis: [],
+				base_index: 3,
+				base: [],
+				productlistcontent:[]	,
+				}
 		},
-// 		created() {
-// 			this.productlistcontent(); //调用标签数据
-// 		},
+		created() {
+			this.builddianqis(); //调用标签数据
+		    this.buildbase();
+			this.buildproductlistcontent();
+		},
 		methods: {
 			changeBaseIndex(index) {
-				if (index!=3) {
-					this.base_index = index;
+				this.base_index = index;
 				
-				}else{	
-						this.$router.push({
-						path: '/discount', //${id}
-					})
-				}
 
 			},
 			//选择动态标签
@@ -369,6 +126,33 @@
 					this.search_params['type'] = '';
 				}
 				this.productlistcontent();
+			},
+			buildbase(){
+				this.axios.get('/api/base').then(res => {
+					this.base = res.data.data //请求出来的标签数据
+				}).catch(function(error) {
+					console.log(error);
+				})
+			},
+			builddianqis() {
+				let newId = this.$route.params.id;
+				this.axios.get('/api/dianqis').then(res => {					
+						this.dianqis = res.data.data						
+				}).catch(function(error) {
+					console.log(error);
+			
+				})
+			},
+			buildproductlistcontent(){
+				let newId = this.$route.params.id;
+				this.axios.get('/api/productlistcontent').then(res => {
+					
+						this.productlistcontent = res.data.data
+												
+				}).catch(function(error) {
+					console.log(error);
+							
+				})
 			},
 			//标签数据请求
 			// 			buildingList() {

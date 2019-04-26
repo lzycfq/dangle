@@ -45,22 +45,23 @@
 			</div>
 		<!-- 产品列表 -->
 		<ul class="product_commodity">
-
 			<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_show" v-for="(item,index) in productlistcontent.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index">
 				<router-link :to="{ name:'detail', params: {id:item.id}}">
 					<div class="po_re" style="width: 100%;background-color: rgba(238,238,238,.3);border-radius: 5px;"><img :src="item.productlistimg" />
-						<div class="s_title" v-if="item.productlisttitle.length!=0">
+						<!-- <div class="s_title" v-if="item.productlisttitle.length!=0">
 							<span>{{item.productlisttitle}}</span>
 						</div>
 							<div class="s_title" v-else>
 							<span>{{item.productlisttitle}}</span>
-						</div>
-						</div>
+						</div> -->
+						</div> 
 
 						<p class="text_center" style="height: 1.8rem;line-height: 1.8rem;font-size: 1rem;color: #333333;">{{item.productxinghao}}</p>
 						<dl class="particulars">
-							<dd>产品价格：{{item.productjiage}}</dd>
-							<dd style="padding: 0 20px"></dd>
+							<dd>{{item.productjiage}}</dd>
+							<dd>{{item.productpingpai}}</dd>
+							<dd>{{item.productkuandu}}</dd>
+							<dd>{{item.productdengji}}</dd>
 
 						</dl>
 				</router-link>

@@ -156,7 +156,7 @@ const scrollfor = Mock.mock(
 					"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
 				},
 				{
-					"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
+					"scrollimg": "http://dangle.yunsta.com/uploads/type/5c76524513997.jpg"
 				},
 				{
 					"scrollimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg"
@@ -375,23 +375,31 @@ const productlistcontent = Mock.mock(
 			code: 200,
 			data: [{
 					productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
+				    type:1,
 					productlisttitle: "特价",
 					productxinghao: "DJL-8802",
-					productjiage: "350",
-					id: 1
+					productjiage: "产品价格：350.00",
+					productpingpai: "产品品牌：当乐橱柜",
+					productkuandu: "产品宽度：900",
+			        productdengji: "产品能耗：一级",
+			        id: 1
 
 				},
 				{
 					productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2ef32cc1.jpg",
-					productlisttitle: "特价",
+				
+					type:2,               
 					productxinghao: "DJL-8712",
-					productjiage: "440",
+					productjiage: "产品价格：350.00",
+					productkuandu: "产品宽度：900",
+					productdengji: "产品能耗：一级",
 					id: 2
 
 				},
 				{
 					productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2da1d432.png",
 					productlisttitle: "特价",
+					type:1,
 					productxinghao: "DJL-8802",
 					productjiage: "450",
 					id: 3
@@ -400,6 +408,7 @@ const productlistcontent = Mock.mock(
 				{
 					productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c02775464.png",
 					productlisttitle: "特价",
+					type:1,
 					productxinghao: "DJL-4802",
 					productjiage: "340",
 					id: 4
@@ -408,6 +417,7 @@ const productlistcontent = Mock.mock(
 				{
 					productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c26b472bf.jpg",
 					productlisttitle: "特价",
+					type:1,
 					productxinghao: "DJL-8902",
 					productjiage: "550",
 					id: 5
@@ -417,6 +427,7 @@ const productlistcontent = Mock.mock(
 				{
 					productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
 					productlisttitle: "特价",
+					type:2,
 					productxinghao: "DJL-8702",
 					productjiage: "150",
 					id: 6
@@ -426,6 +437,7 @@ const productlistcontent = Mock.mock(
 					productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c23ecdce1.jpg",
 					productlisttitle: "特价",
 					productxinghao: "DJL-8102",
+					type:1,
 					productjiage: "350",
 					id: 7
 
@@ -436,6 +448,7 @@ const productlistcontent = Mock.mock(
 					productlisttitle: "特价",
 					productxinghao: "DJL-8102",
 					productjiage: "310",
+					type:2,
 					id: 8
 
 
@@ -445,6 +458,7 @@ const productlistcontent = Mock.mock(
 					productlisttitle: "特价",
 					productxinghao: "DJL-8402",
 					productjiage: "340",
+					type:1,
 					id: 9
 
 
@@ -455,15 +469,107 @@ const productlistcontent = Mock.mock(
 	})
 // detail详情页面
 const allpcbannerdetail = Mock.mock(
-	'/api/allpcbannerdetail/', 'get', (req, res) => {
+	'/api/allpcbannerdetail/', 'post', (req, res) => {
 		return {
 			code: 200,
-			data: [
+			sb: [
 				{
 			    id:1,
 				pcbannerdetail:[{
 					index: 0,
+					dataimg: header01
+				},
+				{
+					index: 1,
+					dataimg: header02
+				},
+				{
+					index: 2,
 					dataimg: header03
+				},
+				{
+					index: 3,
+					dataimg: header04
+				},
+				{
+					index: 4,
+					dataimg: header05
+				}]
+				},
+				{
+				id:2,
+				pcbannerdetail:[{
+					index: 0,
+					dataimg: header02
+				},
+				{
+					index: 1,
+					dataimg: header01
+				},
+				{
+					index: 2,
+					dataimg: header03
+				},
+				{
+					index: 3,
+					dataimg: header04
+				},
+				{
+					index: 4,
+					dataimg: header05
+				}]
+				},
+				{
+				id:3,
+				pcbannerdetail:[{
+					index: 0,
+					dataimg: header03
+				},
+				{
+					index: 1,
+					dataimg: header01
+				},
+				{
+					index: 2,
+					dataimg: header03
+				},
+				{
+					index: 3,
+					dataimg: header04
+				},
+				{
+					index: 4,
+					dataimg: header05
+				}]
+				},
+				{
+				id:4,
+				pcbannerdetail:[{
+					index: 0,
+					dataimg: header04
+				},
+				{
+					index: 1,
+					dataimg: header01
+				},
+				{
+					index: 2,
+					dataimg: header03
+				},
+				{
+					index: 3,
+					dataimg: header04
+				},
+				{
+					index: 4,
+					dataimg: header05
+				}]
+				},
+				{
+				id:5,
+				pcbannerdetail:[{
+					index: 0,
+					dataimg: header05
 				},
 				{
 					index: 1,
@@ -493,11 +599,87 @@ const allmbbannerdetail = Mock.mock(
 		return {
 			
 			code: 200,
-			data: [				
+			sb: [				
 				{
 					id: 1,
 					mbbannerdetail:[{
+					mbdataimg: mbheadr01
+				},
+				{
 					mbdataimg: mbheadr02
+				},
+				{
+					mbdataimg: mbheadr03
+				},
+				{
+					mbdataimg: mbheadr04
+				},
+				{
+					mbdataimg: mbheadr05
+				}
+				],
+				},
+				{
+					id: 2,
+					mbbannerdetail:[{
+					mbdataimg: mbheadr02
+				},
+				{
+					mbdataimg: mbheadr01
+				},
+				{
+					mbdataimg: mbheadr03
+				},
+				{
+					mbdataimg: mbheadr04
+				},
+				{
+					mbdataimg: mbheadr05
+				}
+				],
+				},
+				{
+					id: 3,
+					mbbannerdetail:[{
+					mbdataimg: mbheadr03
+				},
+				{
+					mbdataimg: mbheadr01
+				},
+				{
+					mbdataimg: mbheadr03
+				},
+				{
+					mbdataimg: mbheadr04
+				},
+				{
+					mbdataimg: mbheadr05
+				}
+				]
+				},
+				{
+					id: 4,
+					mbbannerdetail:[{
+					mbdataimg: mbheadr04
+				},
+				{
+					mbdataimg: mbheadr01
+				},
+				{
+					mbdataimg: mbheadr03
+				},
+				{
+					mbdataimg: mbheadr04
+				},
+				{
+					mbdataimg: mbheadr05
+				}
+				],
+				},
+				{
+					id: 5,
+					mbbannerdetail:[{
+					mbdataimg: mbheadr05
 				},
 				{
 					mbdataimg: mbheadr01
@@ -528,23 +710,241 @@ const allmbbannerdetail = Mock.mock(
 					nextprev: [{
 						detailprev: "充气娃娃",
 						detailprodectname: "避孕套",
-						detailnext: "火箭筒"
+						detailnext: "火箭筒",
+						
 					}]
 
 				}],
 			    bannerxh:[
 					{
 						weizhi:[
-							{
+							{  
+								id:1,
 								xinghaoname:"角落",
-								xinghao:"GD-8852"
-							}
+								xinghao:"GD-8152"
+							},
+							
 						]
 					}
 				],
 				message: '查询成功'
 			}
 		})
+		const weizhi = Mock.mock(
+			'/api/weizhi', 'get', (req, res) => {
+				return {
+				
+					code: 200,
+					sbone: [
+						{  
+							id:1,
+							weizhiname:"角落",
+							weizhixinghao:"GD-8152"
+						},
+						{  
+							id:2,
+							weizhiname:"锤子",
+							weizhixinghao:"GD-8152"
+						},
+						{  
+							id:3,
+							weizhiname:"避孕套",
+							weizhixinghao:"GD-8852"
+						},
+						{  
+							id:4,
+							weizhiname:"手机",
+							weizhixinghao:"GD-8452"
+						},
+						{  
+							id:5,
+							weizhiname:"桌台",
+							weizhixinghao:"GD-8552"
+						}
+					],
+					message: '查询成功'
+				}
+			})
+			const dianqis = Mock.mock(
+				'/api/dianqis', 'get', (req, res) => {
+					return {
+					
+						code: 200,
+						data: [
+							{
+									dianqicontent: [{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f1238592e.png",
+											dianqiname: "吸油烟机"
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f14857f1f.png",
+											dianqiname: "燃气灶"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f16142520.png",
+											dianqiname: "消毒柜"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f17f9a259.png",
+											dianqiname: "燃气热水器"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f19e9b4fe.png",
+											dianqiname: "嵌入式蒸箱"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f1b51d67c.png",
+											dianqiname: "嵌入式烤箱"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f2261fb74.png",
+											dianqiname: "净水器"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f23517de4.png",
+											dianqiname: "集成灶"
+							
+										}
+									]
+								},
+								{
+									dianqicontent: [{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f3604c246.png",
+											dianqiname: "五金挂件"
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f37cf3c77.png",
+											dianqiname: "电热水器"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f39abd81e.png",
+											dianqiname: "浴室柜"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f3ae544fd.png",
+											dianqiname: "陶瓷件"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f4b69b62a.png",
+											dianqiname: "浴缸"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f4c8df447.png",
+											dianqiname: "淋浴房"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f62e6f512.png",
+											dianqiname: "五金水龙头"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f62e6f512.png",
+											dianqiname: "水槽"
+							
+										},
+							
+									]
+								},
+								{
+									dianqicontent: [{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f686c311f.png",
+											dianqiname: "吊灯"
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f7a9cc42d.png",
+											dianqiname: "吊扇灯"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f7b9b3562.png",
+											dianqiname: "光源灯带"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f8d8d88ca.png",
+											dianqiname: "过道灯"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f8ed0cf94.png",
+											dianqiname: "开关插座"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f909dc29e.png",
+											dianqiname: "客厅灯"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f92447d9c.png",
+											dianqiname: "平板灯"
+							
+										},
+										{
+											dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f9445b18e.png",
+											dianqiname: "卧室灯"
+							
+										},
+									],
+								},
+								{
+										dianqicontent: [{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f1238592e.png",
+												dianqiname: "吸油烟机"
+											},
+											{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f14857f1f.png",
+												dianqiname: "燃气灶"
+								
+											},
+											{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f16142520.png",
+												dianqiname: "消毒柜"
+								
+											},
+											{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f17f9a259.png",
+												dianqiname: "燃气热水器"
+								
+											},
+											{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f19e9b4fe.png",
+												dianqiname: "嵌入式蒸箱"
+								
+											},
+											{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f1b51d67c.png",
+												dianqiname: "嵌入式烤箱"
+								
+											},
+											{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f2261fb74.png",
+												dianqiname: "净水器"
+								
+											},
+											{
+												dianqiimg: "http://dangle.yunsta.com/uploads/type/5c32f23517de4.png",
+												dianqiname: "集成灶"
+								
+											}
+										]
+									}
+						],
+						message: '查询成功'
+					}
+				})
+			
 export default {
 	pclunbodata,
 	mbbannerdata,
@@ -554,10 +954,11 @@ export default {
 	scrollfor,
 	newmore,
 	base,
-	dianqi,
 	listbiaoqian,
 	productlistcontent,
 	allpcbannerdetail,
 	allmbbannerdetail,
-	detailcontent
+	detailcontent,
+	dianqis,
+	
 }

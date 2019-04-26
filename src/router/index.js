@@ -1,23 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/view/index'
-import about from '@/view/about'
-import advantage from '@/view/advantage'
-import brand from '@/view/brand'
-import consult from '@/view/consult'
-import contact from '@/view/contact'
-import course from '@/view/course'
-import handbook from '@/view/handbook'
-import jiazhiguan from '@/view/jiazhiguan'
-import map from '@/view/map'
-import message from '@/view/message'
-import listnews from '@/view/News/listnews'
-import listzhishi from '@/view/News/listzhishi'
-import listzixun from '@/view/News/listzixun'
-import chanpinlist from '@/view/Goods/chanpinlist'
-import detail from '@/view/Goods/detail'
-import discount from '@/view/Goods/discount'
-import seek from '@/view/Goods/seek'
 
 
 Vue.use(Router)
@@ -28,93 +10,132 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: index
+     component(resolve){
+         require(['@/view/index'],resolve)
+     }
     },
 {
       path: '/chanpinlist',
       name: 'chanpinlist',
-      component: chanpinlist
+     component(resolve){
+         require(['@/view/Goods/chanpinlist'],resolve)
+     }
     },
 		{
 		      path: '/seek',
 		      name: 'seek',
-		      component: seek
+		    component(resolve){
+		        require(['@/view/Goods/seek'],resolve)
+		    }
 		    },
 	{
 	      path: '/detail/:id',///detail/:id 带上后端才请求产品详情参数
 	      name: 'detail',
-	      component: detail
+	     component(resolve){
+	         require(['@/view/Goods/detail'],resolve)
+	     }
 	    },
 {
 	      path: '/discount',///detail/:id 带上后端才请求产品详情参数
 	      name: 'discount',
-	      component: discount
+	    component(resolve){
+	        require(['@/view/Goods/discount'],resolve)
+	    }
 	    },
  {
       path: '/listnews',
       name: 'listnews',
-      component: listnews
+    component(resolve){
+        require(['@/view/News/listnews'],resolve)
+    }
     },
 		 {
 		     path: '/listzhishi',
 		     name: 'listzhishi',
-		     component: listzhishi
+		   component(resolve){
+		       require(['@/view/News/listzhishi'],resolve)
+		   }
 		   },
 			  {
 			      path: '/listzixun',
 			      name: 'listzixun',
-			      component: listzixun
+			    component(resolve){
+			        require(['@/view/News/listzixun'],resolve)
+			    }
 			    },
 		 {
 		  path: '/about',
 		  name: 'about',
-		  component: about
+		 component(resolve){
+		     require(['@/view/about'],resolve)
+		 }
 		},
 		 {
 		  path: '/advantage',
 		  name: 'advantage',
-		  component: advantage
+		 component(resolve){
+		     require(['@/view/advantage'],resolve)
+		 }
 		},
 	 {
 		  path: '/brand',
 		  name: 'brand',
-		  component: brand
+		 component(resolve){
+		     require(['@/view/brand'],resolve)
+		 }
 		},
  {
 		  path: '/consult',
 		  name: 'consult',
-		  component: consult
+		 component(resolve){
+		     require(['@/view/consult'],resolve)
+		 }
 		},
  {
 		  path: '/contact',
 		  name: 'contact',
-		  component: contact
+		 component(resolve){
+		     require(['@/view/contact'],resolve)
+		 }
 		},
  {
 		  path: '/course',
 		  name: 'course',
-		  component: course
+		 component(resolve){
+		     require(['@/view/course'],resolve)
+		 }
 		},
  {
 		  path: '/handbook',
 		  name: 'handbook',
-		  component: handbook
+		 component(resolve){
+		     require(['@/view/handbook'],resolve)
+		 }
 		},
  {
 		  path: '/jiazhiguan',
 		  name: 'jiazhiguan',
-		  component: jiazhiguan
+		component(resolve){
+		    require(['@/view/jiazhiguan'],resolve)
+		}
 		},
 {
 		  path: '/map',
 		  name: 'map',
-		  component: map
+		 component(resolve){
+		     require(['@/view/map'],resolve)
+		 }
 		},
 {
 		  path: '/message',
 		  name: 'message',
-		  component: message
+		component(resolve){
+		    require(['@/view/message'],resolve)
+		}
 		}
 
-  ]
+  ],
+	  scrollBehavior (to, from, savedPosition) {
+	    return { x: 0, y: 0 }
+	}
 })
