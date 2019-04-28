@@ -44,37 +44,38 @@
 					<span class="p_flanks10 m_flanks5" @click="type_index()" v-for='(item,index) in item.listbiaoqian'>{{item.biaoqian}}</span>
 				</p>
 			</div> -->
-		<!-- 产品列表 -->
-		<ul class="product_commodity">
-			<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_show" v-for="(item,index) in productlistcontents.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index">
-				<router-link :to="{ name:'detail', params: { id: item.id }}">
-					<div class="po_re" style="width: 100%;background-color: rgba(238,238,238,.3);border-radius: 5px;"><img :src="item.productlistimg" />
-						<div class="s_title" v-if="item.type == 1">
-							<span>{{item.productlisttitle}}</span>
-						</div>
+			<!-- 产品列表 -->
+			<ul class="product_commodity">
+				<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_show" v-for="(item,index) in productlistcontents.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+				 :key="index">
+					<router-link :to="{ name:'detail', params: { id: item.id }}">
+						<div class="po_re" style="width: 100%;background-color: rgba(238,238,238,.3);border-radius: 5px;"><img :src="item.productlistimg" />
+							<div class="s_title" v-if="item.type == 1">
+								<span>{{item.productlisttitle}}</span>
+							</div>
 							<div class="s_title" style="display: none;" v-else="item.type == 2">
-							<span>{{item.productlisttitle}}</span>
-						</div>
+								<span>{{item.productlisttitle}}</span>
+							</div>
 						</div>
 						<p class="text_center" style="height: 1.8rem;line-height: 1.8rem;font-size: 1rem;color: #333333;">{{item.productxinghao}}</p>
 						<dl class="particulars">
 							<dd>产品价格：{{item.productjiage}}</dd>
 							<dd style="padding: 0 20px"></dd>
-		
+
 						</dl>
-				</router-link>
-			</li>
-			
-		</ul>
-		<div style="clear: both;"></div>
-		<br />
-		<el-pagination class="elpaination" @size-change="handleSizeChange" @current-change="handleCurrentChange"
-		 :current-page="currentPage" prev-text="上一页"  next-text="下一页" :page-sizes="[5, 8, 10, 12]" :page-size="pagesize"
-		 layout="total, sizes, prev, pager, next, jumper,slot" background :total="productlistcontents.length">
-		</el-pagination>
+					</router-link>
+				</li>
+
+			</ul>
+			<div style="clear: both;"></div>
+			<br />
+			<el-pagination class="elpaination" @size-change="handleSizeChange" @current-change="handleCurrentChange"
+			 :current-page="currentPage" prev-text="上一页" next-text="下一页" :page-sizes="[5, 8, 10, 12]" :page-size="pagesize"
+			 layout="total, sizes, prev, pager, next, jumper,slot" background :total="productlistcontents.length">
+			</el-pagination>
 		</div>
-	<!--产品-->
-	<DLfooter></DLfooter>
+		<!--产品-->
+		<DLfooter></DLfooter>
 	</div>
 </template>
 
@@ -90,12 +91,12 @@
 				dianqis: [],
 				base_index: 3,
 				bases: [],
-				productlistcontents:[]	,
-				}
+				productlistcontents: [],
+			}
 		},
 		created() {
 			this.builddianqis(); //调用标签数据
-		    this.buildbases();
+			this.buildbases();
 			this.buildproductlistcontents();
 		},
 		methods: {
@@ -112,8 +113,8 @@
 				}
 				this.productlistcontent();
 			},
-			buildbases(){
-				this.axios.get('/api/bases').then(res => {			
+			buildbases() {
+				this.axios.get('/api/bases').then(res => {
 					this.bases = res.data.data //请求出来的标签数据
 				}).catch(function(error) {
 					console.log(error);
@@ -121,22 +122,22 @@
 			},
 			builddianqis() {
 				let newId = this.$route.params.id;
-				this.axios.get('/api/dianqis').then(res => {					
-						this.dianqis = res.data.data						
+				this.axios.get('/api/dianqis').then(res => {
+					this.dianqis = res.data.data
 				}).catch(function(error) {
 					console.log(error);
-			
+
 				})
 			},
-			buildproductlistcontents(){
+			buildproductlistcontents() {
 				let newId = this.$route.params.id;
 				this.axios.get('/api/productlistcontents').then(res => {
-				console.log(res)
-						this.productlistcontents = res.data.data
-												
+					console.log(res)
+					this.productlistcontents = res.data.data
+
 				}).catch(function(error) {
 					console.log(error);
-							
+
 				})
 			},
 			//标签数据请求
@@ -172,13 +173,16 @@
 	@import "../../assets/css/dangle.css";
 	@import "../../assets/css/index.css";
 	@import "../../assets/css/product.css";
-.el-pagination{
-	float: right !important;
+
+	.el-pagination {
+		float: right !important;
 	}
+
 	.el-pagination.is-background .el-pager li:not(.disabled).active {
-    background-color: #f60 !important;
-    color: #FFF;
-}
+		background-color: #f60 !important;
+		color: #FFF;
+	}
+
 	.tab_ul .active {
 		background: #ED7A02;
 		color: white;
