@@ -6,15 +6,15 @@
 		<div id="carousel-example-generic" class="carousel slide lunbo_img show768" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
-				<li v-for="(item, index) in pcbannerdata"  data-target="#carousel-example-generic"
-			 :data-slide-to="item.index" :class="[index == 0 ? 'active' : '']"></li>
+				<li v-for="(item, index) in pcbannerdata" data-target="#carousel-example-generic" :data-slide-to="item.index"
+				 :class="[index == 0 ? 'active' : '']"></li>
 
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox" id="div">
-					<div class="item" v-for="(item,index) in pcbannerdata"  :class="[index == 0 ? 'active' : '']">
-							<img :src="item.dataimg" />
-					</div>
+				<div class="item" v-for="(item,index) in pcbannerdata" :class="[index == 0 ? 'active' : '']">
+					<img :src="item.dataimg" />
+				</div>
 			</div>
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -33,8 +33,8 @@
 					<swiper :options="imageSwiperOptions" ref="imageSwiper" class='section-wrap'>
 						<swiper-slide class="swiper-slide" v-for="(item, index) in mbbannerdata" :key="index">
 							<img :src="item.mbdataimg" alt="当乐厨房电器-厨房电器加盟首选品牌!" style="width: 100%;" />
-							</swiper-slide>
-						
+						</swiper-slide>
+
 					</swiper>
 				</div>
 				<!-- Add Pagination -->
@@ -82,18 +82,18 @@
 						<router-link to='chanpinlist'><span>厨房类</span></router-link>
 					</li>
 					<li class="off">
-						<router-link to='chanpinlist'  style="color: #333;">卫浴类</router-link>
+						<router-link to='chanpinlist' style="color: #333;">卫浴类</router-link>
 					</li>
 					<li class="off">
-						<router-link to='chanpinlist'  style="color: #333;">灯具类</router-link>
+						<router-link to='chanpinlist' style="color: #333;">灯具类</router-link>
 					</li>
 					<p class="mt10">
-						<router-link to='discount' >特价专区</router-link>
+						<router-link to='discount'>特价专区</router-link>
 					</p>
 				</ul>
 			</div>
 			<div style="overflow: hidden;margin-top: 10px;">
-				<div class="col-sm-6 pb10"  v-for="(item,index) in churouter">
+				<div class="col-sm-6 pb10" v-for="(item,index) in churouter">
 					<router-link to="{ name:'detail', params: { id: item.chuguiid }}"><img :src="item.chuimg" alt="" title="" style="max-width: 100%;"></router-link>
 				</div>
 			</div>
@@ -161,7 +161,7 @@
 				<div class="col-xs-6 on ptb10">当乐新闻</div>
 				<div class="col-xs-6 off ptb10">厨电资讯</div>
 			</div>
-			<div style="overflow: hidden;">
+		
 				<div class="tab_a news_show col-sm-6">
 					<p class="show768">
 						<router-link :to="{path:'/about'}" style="color: #444444;">当乐新闻<img src="../assets/images/arrow_right_2.png"></router-link>
@@ -211,7 +211,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+
 		<DLfooter></DLfooter>
 	</div>
 </template>
@@ -259,29 +259,28 @@
 						prevEl: '.swiper-button-prev',
 					},
 				},
-                pcbannerdata: [],
-				mbbannerdata:[],
+				pcbannerdata: [],
+				mbbannerdata: [],
 				customerspeak: [],
 				sellspeakcontent: [],
 				danglenew: [],
 				scrollfor: [],
-				newmore:[],
-				churouter:[
-					{
-						"chuimg":"http://dangle.yunsta.com/uploads/type/5c76524513997.jpg",
-						"chuid":1
+				newmore: [],
+				churouter: [{
+						"chuimg": "http://dangle.yunsta.com/uploads/type/5c76524513997.jpg",
+						"chuid": 1
 					},
 					{
-						"chuimg":"http://dangle.yunsta.com/uploads/type/5c765256a7546.jpg",
-						"chuid":2
+						"chuimg": "http://dangle.yunsta.com/uploads/type/5c765256a7546.jpg",
+						"chuid": 2
 					},
 					{
-						"chuimg":"http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg",
-						"chuid":3
+						"chuimg": "http://dangle.yunsta.com/uploads/type/5c765265d6270.jpg",
+						"chuid": 3
 					},
 					{
-						"chuimg":"http://dangle.yunsta.com/uploads/type/5c765256a7546.jpg",
-						"chuid":4
+						"chuimg": "http://dangle.yunsta.com/uploads/type/5c765256a7546.jpg",
+						"chuid": 4
 					}
 				]
 			}
@@ -296,69 +295,66 @@
 			this.builddanglenew();
 			this.buildscrollfor();
 			this.buildnewmore();
-		},
-		mounted() {
-			window.onresize = () => {
-				return (() => {
-					var winWidth = document.body.clientWidth;
-					if (winWidth <= 1230) {
-						$('#body').className = "grid-1010";
-					} else if (winWidth <= 1410) {
-						$('#body').className = "grid-1230";
-					} else if (winWidth > 1410) {
-						$('#body').className = "grid-1410";
-					} else {
-						alert("do not know!");
-					}
-				})()
-			}
-			new WOW().init();
-		},
-		//移动端下客户评论与经销商说切换
-		mounted() {
-			window.addEventListener('load', function() {
-				var myTab = document.getElementById('tab_zhaos'); //获取整个节点
-				var myUl = myTab.getElementsByClassName('tab_ul')[0]; //获取单个节点
-				var myLi = myUl.getElementsByTagName('li'); //得到数组
-				var myDiv = myTab.getElementsByClassName('tab_a'); //子数组
-				for (var i = 0; i < myLi.length; i++) {
-					myLi[i].index = i;
-					myLi[i].onclick = function() {
-						for (var j = 0; j < myLi.length; j++) {
-							myLi[j].className = 'off col-xs-4';
-							myDiv[j].className = 'tab_a zhaoS_hidden col-lg-4 col-md-4 col-sm-6 col-xs-12';
-						};
-						this.className = 'on col-xs-4';
-						myDiv[this.index].className = 'tab_a zhaoS_show col-lg-4 col-md-4 col-sm-6 col-xs-12';
-					}
+			window.onload = () => {
+					var myTab = document.querySelector('#tab_zhaos'); //获取整个节点
+					var myUl = myTab.getElementsByClassName('tab_ul')[0]; //获取单个节点
+					var myLi = myUl.getElementsByTagName('li'); //得到数组
+					var myDiv = myTab.getElementsByClassName('tab_a'); //子数组
+					for (var i = 0; i < myLi.length; i++) {
+						myLi[i].index = i;
+						myLi[i].onclick = function() {
+
+							for (var j = 0; j < myLi.length; j++) {
+								myLi[j].className = 'off col-xs-4';
+								myDiv[j].className = 'tab_a zhaoS_hidden col-lg-4 col-md-4 col-sm-6 col-xs-12';
+							};
+							this.className = 'on col-xs-4';
+							myDiv[this.index].className = 'tab_a zhaoS_show col-lg-4 col-md-4 col-sm-6 col-xs-12';
+						}
+					}	
 				}
-			});
 		},
+		
 		//移动端下客新闻资讯板块切换
 		mounted() {
-			window.addEventListener('load', function() {
-				var myTab = document.getElementById('index_news'); //获取整个节点
-				var myUl = myTab.getElementsByClassName('tab_ul')[0]; //获取单个节点
-				var myLi = myUl.getElementsByTagName('div'); //得到数组
-				var myDiv = myTab.getElementsByClassName('tab_a'); //子数组
-				for (var i = 0; i < myLi.length; i++) {
-					myLi[i].index = i;
-					myLi[i].onclick = function() {
-						for (var j = 0; j < myLi.length; j++) {
-							myLi[j].className = 'col-xs-6 off ptb10';
-							myDiv[j].className = 'tab_a news_hidden col-sm-6';
-						};
-						this.className = 'col-xs-6 on ptb10';
-						myDiv[this.index].className = 'tab_a news_show col-sm-6';
-					}
-				}
-			});
+	    
+		  window.addEventListener('load',this.loadkb,false);
+		  window.onresize = function() {
+		    var winWidth = document.body.clientWidth;
+		    if(winWidth <= 1230) {
+		        $('#body').className = "grid-1010";
+		    } else if(winWidth <= 1410) {
+		        $('#body').className = "grid-1230";
+		    } else if(winWidth > 1410) {
+		        $('#body').className = "grid-1410";
+		    } else {
+		        alert("do not know!");
+		    }
+		};
 		},
+
 		methods: {
+			loadkb(){		
+				var myTab = document.getElementById('index_news'); //获取整个节点
+			var myUl = myTab.getElementsByClassName('tab_ul')[0]; //获取单个节点
+			var myLi = myUl.getElementsByTagName('div'); //得到数组
+			var myDiv = myTab.getElementsByClassName('tab_a'); //子数组
+			for (var i = 0; i < myLi.length; i++) {
+				myLi[i].index = i;
+				myLi[i].onclick = function() {
+					for (var j = 0; j < myLi.length; j++) {
+						myLi[j].className = 'col-xs-6 off ptb10';
+						myDiv[j].className = 'tab_a news_hidden col-sm-6';
+					};
+					this.className = 'col-xs-6 on ptb10';
+					myDiv[this.index].className = 'tab_a news_show col-sm-6';
+				}
+			}
+			},
 			scroll() {
 				var that = this;
 				var con = this.$refs.rollul;
-				con[0].style.marginTop = "0px";
+				con[0].style.marginTop = "1px";
 				this.animate = !this.animate;
 				setTimeout(function() {
 					that.customerspeak.push(that.customerspeak[0]);
@@ -369,58 +365,59 @@
 					that.animate = !that.animate;
 				}, 0)
 			},
+
 			//pc主页轮播数据
-			buildpcbannerdata(){
+			buildpcbannerdata() {
 				this.axios.get('/api/pclunbodata').then(res => {
 					this.pcbannerdata = res.data.data //请求出来的标签数据
-				
+
 				}).catch(function(error) {
 					console.log(error);
 				})
 			},
 			//移动端轮播数据
-				buildmbbannerdata(){
+			buildmbbannerdata() {
 				this.axios.get('/api/mbbannerdata').then(res => {
 					this.mbbannerdata = res.data.data //请求出来的标签数据
-				
+
 				}).catch(function(error) {
 					console.log(error);
 				})
 			},
-			buildcustomerspeak(){
+			buildcustomerspeak() {
 				this.axios.get('/api/customerspeak').then(res => {
 					this.customerspeak = res.data.data //请求出来的标签数据
-				
+
 				}).catch(function(error) {
 					console.log(error);
 				})
 			},
-			
-			buildsellspeakcontent(){
+
+			buildsellspeakcontent() {
 				this.axios.get('/api/sellspeakcontent').then(res => {
 					this.sellspeakcontent = res.data.data //请求出来的标签数据
 				}).catch(function(error) {
 					console.log(error);
 				})
 			},
-			
-			builddanglenew(){
+
+			builddanglenew() {
 				this.axios.get('/api/danglenew').then(res => {
 					this.danglenew = res.data.data //请求出来的标签数据
 				}).catch(function(error) {
 					console.log(error);
 				})
 			},
-			
-				buildscrollfor(){
+
+			buildscrollfor() {
 				this.axios.get('/api/scrollfor').then(res => {
 					this.scrollfor = res.data.data //请求出来的标签数据
 				}).catch(function(error) {
 					console.log(error);
 				})
 			},
-			
-			buildnewmore(){
+
+			buildnewmore() {
 				this.axios.get('/api/newmore').then(res => {
 					this.newmore = res.data.data //请求出来的标签数据
 				}).catch(function(error) {
