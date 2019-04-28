@@ -464,6 +464,104 @@ const productlistcontent = Mock.mock(
 			message: '查询成功'
 		}
 	})
+	const productlistcontents = Mock.mock(
+		'/api/productlistcontents', 'get', (req, res) => {
+			return {
+				code: 200,
+				data: [{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
+						type: 1,
+						productlisttitle: "特价",
+						productxinghao: "DJL-8802",
+						productjiage: "产品价格：350.00",
+						productpingpai: "产品品牌：当乐橱柜",
+						productkuandu: "产品宽度：900",
+						productdengji: "产品能耗：一级",
+						id: 1
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2ef32cc1.jpg",
+	
+						type: 2,
+						productxinghao: "DJL-8712",
+						productjiage: "产品价格：350.00",
+						productkuandu: "产品宽度：900",
+						productdengji: "产品能耗：一级",
+						id: 2
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2da1d432.png",
+						productlisttitle: "特价",
+						type: 1,
+						productxinghao: "DJL-8802",
+						productjiage: "450",
+						id: 3
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c02775464.png",
+						productlisttitle: "特价",
+						type: 1,
+						productxinghao: "DJL-4802",
+						productjiage: "340",
+						id: 4
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c26b472bf.jpg",
+						productlisttitle: "特价",
+						type: 1,
+						productxinghao: "DJL-8902",
+						productjiage: "550",
+						id: 5
+	
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
+						productlisttitle: "特价",
+						type: 2,
+						productxinghao: "DJL-8702",
+						productjiage: "150",
+						id: 6
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c23ecdce1.jpg",
+						productlisttitle: "特价",
+						productxinghao: "DJL-8102",
+						type: 1,
+						productjiage: "350",
+						id: 7
+	
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c2ff3631c.jpg",
+						productlisttitle: "特价",
+						productxinghao: "DJL-8102",
+						productjiage: "310",
+						type: 2,
+						id: 8
+	
+	
+					},
+					{
+						productlistimg: "http://dangle.yunsta.com/uploads/product/5c46c222d5b71.jpg",
+						productlisttitle: "特价",
+						productxinghao: "DJL-8402",
+						productjiage: "340",
+						type: 1,
+						id: 9
+	
+	
+					},
+				],
+				message: '查询成功'
+			}
+		})
 // detail详情页面
 const allpcbannerdetail = Mock.mock(
 	'/api/allpcbannerdetail/', 'post', (req, res) => {
@@ -747,6 +845,27 @@ const weizhi = Mock.mock(
 			message: '查询成功'
 		}
 	})
+	
+	const bases = Mock.mock(
+		'/api/bases', 'get', (req, res) => {
+			return {
+				code: 200,
+				data: [{
+						"tabs": "厨电类"
+					},
+					{
+						"tabs": "卫浴类"
+					},
+					{
+						"tabs": "灯具类"
+					},
+					{
+						"tabs": "特价专区"
+					}
+				],
+				message: '查询成功'
+			}
+		})
 const dianqis = Mock.mock(
 	'/api/dianqis', 'get', (req, res) => {
 		return {
@@ -935,8 +1054,10 @@ export default {
 	scrollfor,
 	newmore,
 	base,
+	bases,
 	listbiaoqian,
 	productlistcontent,
+	productlistcontents,
 	allpcbannerdetail,
 	allmbbannerdetail,
 	detailcontent,

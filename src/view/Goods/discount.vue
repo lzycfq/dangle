@@ -11,17 +11,17 @@
 				</div>
 			</div>
 			<!--手机海报图-->
-			<div class="hidden768">
+			<!-- <div class="hidden768">
 				<if condition="$tpic['pic'] neq null">
 					<img src="" style="width: 100%;" />
 				</if>
-			</div>
+			</div> -->
 		</div>
 		<!--分类标签切换页-->
 		<div class="container louceng mtb20">
 			<div id="tab_menu">
 				<ul class="tab_ul">
-					<li v-for="(value,key) in base" :class="key === base_index?' active':''" :key="key" @click="changeBaseIndex(key)"><span>{{value.tabs}}</span></li>
+					<li v-for="(value,key) in bases" :class="key === base_index?' active':''" :key="key" @click="changeBaseIndex(key)"><span>{{value.tabs}}</span></li>
 				</ul>
 				<div class="tab_content xqtabs" v-for="(item,index) in dianqis" :class="index === base_index?'active':''" :key="index">
 					<!--电气类content-->
@@ -46,13 +46,13 @@
 			</div> -->
 		<!-- 产品列表 -->
 		<ul class="product_commodity">
-			<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_show" v-for="(item,index) in productlistcontent.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index">
+			<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_show" v-for="(item,index) in productlistcontents.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index">
 				<router-link :to="{ name:'detail', params: { id: item.id }}">
 					<div class="po_re" style="width: 100%;background-color: rgba(238,238,238,.3);border-radius: 5px;"><img :src="item.productlistimg" />
-						<div class="s_title" v-if="item.productlisttitle.length!=0">
+						<div class="s_title" v-if="item.type == 1">
 							<span>{{item.productlisttitle}}</span>
 						</div>
-							<div class="s_title" v-else>
+							<div class="s_title" style="display: none;" v-else="item.type == 2">
 							<span>{{item.productlisttitle}}</span>
 						</div>
 						</div>
@@ -60,7 +60,7 @@
 						<dl class="particulars">
 							<dd>产品价格：{{item.productjiage}}</dd>
 							<dd style="padding: 0 20px"></dd>
-
+		
 						</dl>
 				</router-link>
 			</li>
@@ -70,15 +70,9 @@
 		<br />
 		<el-pagination class="elpaination" @size-change="handleSizeChange" @current-change="handleCurrentChange"
 		 :current-page="currentPage" prev-text="上一页"  next-text="下一页" :page-sizes="[5, 8, 10, 12]" :page-size="pagesize"
-		 layout="total, sizes, prev, pager, next, jumper,slot" background :total="productlistcontent.length">
+		 layout="total, sizes, prev, pager, next, jumper,slot" background :total="productlistcontents.length">
 		</el-pagination>
 		</div>
-
-
-	<!--分页-->
-
-							
-
 	<!--产品-->
 	<DLfooter></DLfooter>
 	</div>
@@ -87,30 +81,26 @@
 <script>
 	import DLheader from '../../components/header.vue'
 	import DLfooter from '../../components/footer.vue'
-
 	export default {
 		name: "handbook",
 		data() {
-
 			return {
 				currentPage: 1, //初始页
 				pagesize: 8, //每页的数据
 				dianqis: [],
 				base_index: 3,
-				base: [],
-				productlistcontent:[]	,
+				bases: [],
+				productlistcontents:[]	,
 				}
 		},
 		created() {
 			this.builddianqis(); //调用标签数据
-		    this.buildbase();
-			this.buildproductlistcontent();
+		    this.buildbases();
+			this.buildproductlistcontents();
 		},
 		methods: {
 			changeBaseIndex(index) {
 				this.base_index = index;
-				
-
 			},
 			//选择动态标签
 			typeIndex(index) {
@@ -122,9 +112,9 @@
 				}
 				this.productlistcontent();
 			},
-			buildbase(){
-				this.axios.get('/api/base').then(res => {
-					this.base = res.data.data //请求出来的标签数据
+			buildbases(){
+				this.axios.get('/api/bases').then(res => {			
+					this.bases = res.data.data //请求出来的标签数据
 				}).catch(function(error) {
 					console.log(error);
 				})
@@ -138,11 +128,11 @@
 			
 				})
 			},
-			buildproductlistcontent(){
+			buildproductlistcontents(){
 				let newId = this.$route.params.id;
-				this.axios.get('/api/productlistcontent').then(res => {
-					
-						this.productlistcontent = res.data.data
+				this.axios.get('/api/productlistcontents').then(res => {
+				console.log(res)
+						this.productlistcontents = res.data.data
 												
 				}).catch(function(error) {
 					console.log(error);
