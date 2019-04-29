@@ -7,7 +7,6 @@
 					<router-link to="/">首页</router-link><span><img src="../../assets/images/arrow_right_2.png" width="12px" height="12px">
 						<router-link to="" style="float: right;">五金挂件</router-link>
 					</span>
-
 				</div>
 			</div>
 			<!--手机海报图-->
@@ -33,16 +32,12 @@
 						</ul>
 					</div>
 				</div>
-
 			</div>
-
 		</div>
 		<!--产品-->
 		<div class="container">
-	
 			<!-- 产品列表 -->
 			<ul class="product_commodity">
-
 				<li class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_show" v-for="(item,index) in productlistcontent.slice((currentPage-1)*pagesize,currentPage*pagesize)"
 				 :key="index">
 					<router-link :to="{ name:'detail', params: { id: item.id }}">
@@ -54,7 +49,6 @@
 								<span>{{item.productlisttitle}}</span>
 							</div>
 						</div>
-
 						<p class="text_center" style="height: 1.8rem;line-height: 1.8rem;font-size: 1rem;color: #333333;">{{item.productxinghao}}</p>
 						<dl class="particulars">
 							<dd>产品价格：{{item.productjiage}}</dd>
@@ -63,7 +57,6 @@
 						</dl>
 					</router-link>
 				</li>
-
 			</ul>
 			<div style="clear: both;"></div>
 			<br />
@@ -72,13 +65,6 @@
 			 layout="total, sizes, prev, pager, next, jumper,slot" background :total="productlistcontent.length">
 			</el-pagination>
 		</div>
-
-
-		<!--分页-->
-
-
-
-		<!--产品-->
 		<DLfooter></DLfooter>
 	</div>
 </template>
