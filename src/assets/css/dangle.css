@@ -60,7 +60,10 @@ body{
 	color: #000;
 	font-size: 0.7em;
 }
-
+.baozhang_index h3{
+	padding-top: 0 !important;
+	margin-top: 0 !important;
+}
 @media screen and (min-width: 968px) {
 	.nav_head .nav_text a{
 		font-size: 17px !important;
