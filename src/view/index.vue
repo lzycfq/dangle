@@ -130,9 +130,9 @@
 						<div class="customer_speak">
 							<ul>
 								<li ref="rollul" v-for="(item,index) in customerspeak" :class="{anim:animate==true}">
-									<a style="display: block;" href="/Contact/wenda.html#wenda">
+									<router-link to='/wenda' style="display: block;">
 										<p class="f12" title="item.cuscontent">{{item.cuscontent}}</p>
-									</a>
+									</router-link>
 								</li>
 
 							</ul>

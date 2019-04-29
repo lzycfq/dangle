@@ -38,6 +38,7 @@
 					seekname:''
 				}
 				},
+				
 				methods:{
 					seek(){
 						var formData = JSON.stringify(this.seek);

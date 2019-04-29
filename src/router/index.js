@@ -20,7 +20,21 @@ export default new Router({
      component(resolve){
          require(['@/view/Goods/chanpinlist'],resolve)
      }
+	 },
+	 {
+	       path: '/wenda',
+	       name: 'wenda',
+	      component(resolve){
+	          require(['@/view/wenda'],resolve)
+	      }
     },
+	{
+	       path: '/serve',
+	       name: 'serve',
+	      component(resolve){
+	          require(['@/view/serve'],resolve)
+	      }
+	},
 		{
 		      path: '/seek',
 		      name: 'seek',

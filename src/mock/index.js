@@ -1044,7 +1044,35 @@ const dianqis = Mock.mock(
 			message: '查询成功'
 		}
 	})
+const wendas = Mock.mock(
+	'/api/wendas', 'get', (req, res) => {
+		return {
 
+			code: 200,
+			data: [{
+				wendatime:"2019-3-15 15:35分",
+				wendacontent:"有些人对美的理解只是对于外表，而不注重心灵。其实那是不对的，心灵才是人最佳的名片。心灵才是最美的，比世界上的每一种化妆品每一种首饰……"
+
+			},
+			{
+				wendatime:"2019-2-15 17:35分",
+				wendacontent:"有的人循规蹈矩，一生碌碌无为，到老之时唉声叹气，责怪命运的不公平；而有的人，善于创新，关键时放手一搏，"
+			
+			},
+			{
+				wendatime:"2019-2-17 7:35分",
+				wendacontent:"也活出了不一样的精彩，不一样的闪耀。命运，永远掌握在自己手中，但要看你是怎样对待它的。"
+			
+			},
+			{
+				wendatime:"2019-1-17 7:35分",
+				wendacontent:"离别也不失为一种享受，因为它能将曾经不经意所错失的温暖，一一重现。朋友的离开，可以更加珍惜剩余时间内，"
+			
+			}
+			],
+			message: '查询成功'
+		}
+	})
 export default {
 	pclunbodata,
 	mbbannerdata,
@@ -1062,5 +1090,6 @@ export default {
 	allmbbannerdetail,
 	detailcontent,
 	dianqis,
+	wendas
 
 }

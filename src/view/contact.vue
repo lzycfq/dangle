@@ -8,8 +8,8 @@
 			<div style="overflow: hidden;position: relative;">
 				<div class="about_nav">
 					<div class="onAbout"><router-link to='contact' >在线客服<span></span></router-link></div>
-					<div><router-link to='wenda' >当乐问吧<span></span></router-link></div>
-					<div><router-link to='serve' >服务中心<span></span></router-link></div>
+					<div><router-link to='wenda' style="color: #333333;">当乐问吧<span></span></router-link></div>
+					<div><router-link to='serve' style="color: #333333;">服务中心<span></span></router-link></div>
 				</div>
 				<hr style="position: absolute;width: 100%;background-color: #000;bottom: -4px;z-index: 1;" />
 			</div>
