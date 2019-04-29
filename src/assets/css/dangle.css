@@ -46,7 +46,10 @@ body{
 	margin-bottom: 0 !important;
  	padding-bottom: 0 !important;
 }
+.navbar{
+	margin-bottom:0px !important;
 
+}
 @media screen and (min-width: 968px) {
 	.nav_head img{
 		width: 90%;
@@ -60,7 +63,7 @@ body{
 
 @media screen and (min-width: 968px) {
 	.nav_head .nav_text a{
-		font-size: 1em !important;
+		font-size: 17px !important;
 	}
 }
 

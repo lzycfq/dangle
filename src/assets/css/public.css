@@ -9,7 +9,7 @@ ul,ol{list-style: none;}
 
 a:hover{text-decoration: none;}
 
-html,body,div,p,a,span{font-size: 1rem;}
+/* html,body,div,p,a,span{font-size: 1rem;} */
 table {
     display: table;
     border-collapse: separate;
